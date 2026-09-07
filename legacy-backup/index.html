@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>NexGen Build Company</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" href="./favicon.png">
+<link rel="apple-touch-icon" href="./favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Barlow+Condensed:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<script>
+try {
+  var __t = localStorage.getItem('theme');
+  if (__t === 'light' || __t === 'dark') {
+    document.documentElement.setAttribute('toggle-theme', __t);
+    document.body.setAttribute('toggle-theme', __t);
+  }
+} catch (e) {}
+</script>
+<!-- Shared nav — keep in sync across pages -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="logo.png" alt="NexGen Build logo" height="44" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" data-en="Home" data-ar="الرئيسية">Home</a></li>
+      <li><a href="about.html" data-en="About Us" data-ar="عن الشركة">About Us</a></li>
+      <li><a href="services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
+      <li><a href="workshop.html" data-en="Workshop" data-ar="الورشة">Workshop</a></li>
+      <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button type="button" class="theme-toggle" id="btn-theme" aria-pressed="false" aria-label="Toggle color theme" title="Theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>
+      </button>
+      <div class="lang-toggle">
+        <button type="button" class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button type="button" class="lang-btn" id="btn-ar" onclick="setLang('ar')">AR</button>
+      </div>
+      <a class="btn-quote" href="contact.html" data-en="Get a Quote" data-ar="طلب عرض سعر">Get a Quote</a>
+      <div class="hamburger" onclick="toggleMobile()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <a href="about.html" data-en="About Us" data-ar="عن الشركة">About Us</a>
+  <a href="services.html" data-en="Services" data-ar="الخدمات">Services</a>
+  <a href="workshop.html" data-en="Workshop" data-ar="الورشة">Workshop</a>
+  <a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+  <div class="mobile-lang">
+    <button type="button" class="lang-btn active" id="m-btn-en" onclick="setLang('en')">EN</button>
+    <button type="button" class="lang-btn" id="m-btn-ar" onclick="setLang('ar')">AR</button>
+  </div>
+  <div class="mobile-theme">
+    <span data-en="Theme" data-ar="المظهر">Theme</span>
+    <button type="button" class="theme-toggle" id="m-btn-theme" aria-pressed="false" aria-label="Toggle color theme" title="Theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</div>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <source src="video1.mp4" type="video/mp4"/>
+    </video>
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <span data-en="Saudi Aramco Registered Supplier" data-ar="مورد معتمد لأرامكو السعودية">Saudi Aramco Registered Supplier</span>
+        </div>
+        <h1>
+          <span data-en="Building" data-ar="نبني">Building</span>
+          <span class="accent"> <span data-en="Tomorrow's" data-ar="مستقبل">Tomorrow's</span></span><br>
+          <span class="light hero-typewriter-wrap" aria-live="polite">
+            <span id="hero-typewriter-text"></span><span class="hero-typewriter-cursor" aria-hidden="true"></span>
+          </span>
+        </h1>
+        <p class="hero-desc" data-en="Comprehensive construction, fabrication, and industrial solutions — from foundation to finish, from concept to precision-engineered reality." data-ar="حلول شاملة للبناء والتصنيع والصناعة — من الأساس إلى الإنهاء، ومن الفكرة إلى الواقع المهندس بدقة.">Comprehensive construction, fabrication, and industrial solutions — from foundation to finish, from concept to precision-engineered reality.</p>
+        <div class="hero-btns">
+          <a class="btn-primary" href="services.html">
+            <span data-en="Explore Services" data-ar="استكشف الخدمات">Explore Services</span> →
+          </a>
+          <a class="btn-outline" href="contact.html">
+            <span data-en="Get a Quote" data-ar="طلب عرض سعر">Get a Quote</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num"><span class="loader-counter" data-from="0" data-to="6" data-mode="loader" data-duration="2.2">0</span><span>+</span></div>
+            <div class="stat-label" data-en="Service Divisions" data-ar="أقسام الخدمة">Service Divisions</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num"><span class="loader-counter" data-from="0" data-to="2" data-mode="loader" data-duration="2">0</span><span>+</span></div>
+            <div class="stat-label" data-en="Workshop Facilities" data-ar="مرافق ورشة العمل">Workshop Facilities</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num"><span class="loader-counter" data-from="0" data-to="2" data-mode="loader" data-duration="2">0</span><span>✓</span></div>
+            <div class="stat-label" data-en="Major Certifications" data-ar="شهادات رئيسية">Major Certifications</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-cardstack-wrap">
+        <div
+          class="hero-cardstack"
+          id="hero-cardstack"
+          role="button"
+          tabindex="0"
+          aria-label="Service stack. Activate to bring the next service to the front."
+        >
+          <div class="hero-cardstack-track">
+            <article class="hero-cardstack-card hero-service-card">
+              <div class="service-icon" aria-hidden="true">🏗️</div>
+              <h3 data-en="General Construction" data-ar="البناء العام">General Construction</h3>
+              <p class="hero-service-desc" data-en="Complete structural construction and site development — foundations, framing, masonry, paving, and full civil works." data-ar="بناء هيكلي متكامل وتطوير الموقع — الأسس والهياكل والبناء والرصف والأعمال المدنية الكاملة.">Complete structural construction and site development — foundations, framing, masonry, paving, and full civil works.</p>
+            </article>
+            <article class="hero-cardstack-card hero-service-card">
+              <div class="service-icon" aria-hidden="true">⚡</div>
+              <h3 data-en="Electrical Services" data-ar="الخدمات الكهربائية">Electrical Services</h3>
+              <p class="hero-service-desc" data-en="Full electrical system design, installation, and maintenance — power distribution, lighting, backup systems, and certification." data-ar="تصميم وتركيب وصيانة كاملة للأنظمة الكهربائية — توزيع الطاقة والإضاءة وأنظمة الطوارئ.">Full electrical system design, installation, and maintenance — power distribution, lighting, backup systems, and certification.</p>
+            </article>
+            <article class="hero-cardstack-card hero-service-card">
+              <div class="service-icon" aria-hidden="true">❄️</div>
+              <h3 data-en="HVAC Services" data-ar="خدمات التكييف والتهوية">HVAC Services</h3>
+              <p class="hero-service-desc" data-en="Advanced climate control — central AC, VRF systems, ventilation, ductwork, energy-efficient designs, and maintenance contracts." data-ar="تحكم متقدم في المناخ — تكييف مركزي وأنظمة VRF والتهوية والمجاري الهوائية.">Advanced climate control — central AC, VRF systems, ventilation, ductwork, energy-efficient designs, and maintenance contracts.</p>
+            </article>
+            <article class="hero-cardstack-card hero-service-card">
+              <div class="service-icon" aria-hidden="true">🔧</div>
+              <h3 data-en="Sanitary Services" data-ar="الخدمات الصحية">Sanitary Services</h3>
+              <p class="hero-service-desc" data-en="Comprehensive plumbing — water supply networks, drainage, hot water systems, rainwater harvesting, and maintenance." data-ar="سباكة شاملة — شبكات إمداد المياه والصرف وأنظمة المياه الساخنة وتجميع مياه الأمطار.">Comprehensive plumbing — water supply networks, drainage, hot water systems, rainwater harvesting, and maintenance.</p>
+            </article>
+            <article class="hero-cardstack-card hero-service-card">
+              <div class="service-icon" aria-hidden="true">🛡️</div>
+              <h3 data-en="Waterproofing" data-ar="العزل المائي">Waterproofing</h3>
+              <p class="hero-service-desc" data-en="Specialized protective solutions — foundation, roof, wet area sealing, tank waterproofing, joint treatment, and protective coatings." data-ar="حلول وقائية متخصصة — عزل الأساسات والأسطح والمناطق الرطبة والخزانات.">Specialized protective solutions — foundation, roof, wet area sealing, tank waterproofing, joint treatment, and protective coatings.</p>
+            </article>
+            <article class="hero-cardstack-card hero-service-card">
+              <div class="service-icon" aria-hidden="true">🔥</div>
+              <h3 data-en="Fire Fighting Systems" data-ar="أنظمة الإطفاء">Fire Fighting Systems</h3>
+              <p class="hero-service-desc" data-en="Complete fire protection — sprinklers, alarms, hydrants, suppression systems, control panels, testing & annual maintenance contracts." data-ar="حماية كاملة من الحرائق — رشاشات وإنذارات وخراطيم وأنظمة إخماد ولوحات تحكم.">Complete fire protection — sprinklers, alarms, hydrants, suppression systems, control panels, testing & annual maintenance contracts.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" onclick="document.getElementById('home-creds').scrollIntoView({behavior:'smooth'})">
+      <div class="scroll-mouse"></div>
+      <span data-en="SCROLL" data-ar="تمرير">SCROLL</span>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS — horizontal marquee (partner logos; duplicate row for seamless loop) -->
+  <div class="credentials-strip" id="home-creds" role="region" aria-label="Trusted partners and certifications">
+    <div class="cred-marquee-track">
+      <div class="cred-marquee-group">
+        <article class="cred-marquee-card" tabindex="0">
+          <div class="cred-marquee-logo-wrap cred-marquee-logo-wrap--wide">
+            <img class="cred-marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Saudi_aramco_logo.svg" alt="" width="72" height="28" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="Saudi Aramco" data-ar="أرامكو السعودية">Saudi Aramco</strong>
+            <span data-en="Approved Vendor #10119021" data-ar="مورد معتمد #10119021">Approved Vendor #10119021</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="0">
+          <div class="cred-marquee-logo-wrap">
+            <img class="cred-marquee-logo" src="cred-logos/saudi-energy.svg" alt="" width="56" height="44" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="Saudi Energy" data-ar="الطاقة السعودية">Saudi Energy</strong>
+            <span data-en="Registered Supplier · SAP Ariba" data-ar="مورد مسجل · SAP Ariba">Registered Supplier · SAP Ariba</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="0">
+          <div class="cred-marquee-logo-wrap cred-marquee-logo-wrap--wide">
+            <img class="cred-marquee-logo" src="cred-logos/vision-2030.svg" alt="" width="72" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="Vision 2030" data-ar="رؤية 2030">Vision 2030</strong>
+            <span data-en="Kingdom infrastructure alignment" data-ar="مواءمة البنية التحتية للمملكة">Kingdom infrastructure alignment</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="0">
+          <div class="cred-marquee-logo-wrap cred-marquee-logo-wrap--wide">
+            <img class="cred-marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="" width="72" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="SAP Ariba" data-ar="SAP Ariba">SAP Ariba</strong>
+            <span data-en="Supplier network &amp; procurement" data-ar="شبكة الموردين والمشتريات">Supplier network &amp; procurement</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="0">
+          <div class="cred-marquee-logo-wrap cred-marquee-logo-wrap--wide">
+            <img class="cred-marquee-logo" src="cred-logos/iso-9001.svg" alt="" width="72" height="44" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="ISO 9001" data-ar="ISO 9001">ISO 9001</strong>
+            <span data-en="Quality management systems" data-ar="أنظمة إدارة الجودة">Quality management systems</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="0">
+          <div class="cred-marquee-logo-wrap">
+            <img class="cred-marquee-logo" src="cred-logos/fiber-laser.svg" alt="" width="48" height="48" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="Fiber Laser &amp; CNC" data-ar="ليزر ألياف و CNC">Fiber Laser &amp; CNC</strong>
+            <span data-en="Dammam &amp; Jubail facilities" data-ar="مرافق الدمام والجبيل">Dammam &amp; Jubail facilities</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="0">
+          <div class="cred-marquee-logo-wrap">
+            <img class="cred-marquee-logo" src="cred-logos/aws-welding.svg" alt="" width="48" height="48" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="AWS Welding" data-ar="لحام AWS">AWS Welding</strong>
+            <span data-en="Certified welding processes" data-ar="عمليات لحام معتمدة">Certified welding processes</span>
+          </div>
+        </article>
+      </div>
+      <div class="cred-marquee-group" aria-hidden="true">
+        <article class="cred-marquee-card" tabindex="-1">
+          <div class="cred-marquee-logo-wrap cred-marquee-logo-wrap--wide">
+            <img class="cred-marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Saudi_aramco_logo.svg" alt="" width="72" height="28" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="Saudi Aramco" data-ar="أرامكو السعودية">Saudi Aramco</strong>
+            <span data-en="Approved Vendor #10119021" data-ar="مورد معتمد #10119021">Approved Vendor #10119021</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="-1">
+          <div class="cred-marquee-logo-wrap">
+            <img class="cred-marquee-logo" src="cred-logos/saudi-energy.svg" alt="" width="56" height="44" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="Saudi Energy" data-ar="الطاقة السعودية">Saudi Energy</strong>
+            <span data-en="Registered Supplier · SAP Ariba" data-ar="مورد مسجل · SAP Ariba">Registered Supplier · SAP Ariba</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="-1">
+          <div class="cred-marquee-logo-wrap cred-marquee-logo-wrap--wide">
+            <img class="cred-marquee-logo" src="cred-logos/vision-2030.svg" alt="" width="72" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="Vision 2030" data-ar="رؤية 2030">Vision 2030</strong>
+            <span data-en="Kingdom infrastructure alignment" data-ar="مواءمة البنية التحتية للمملكة">Kingdom infrastructure alignment</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="-1">
+          <div class="cred-marquee-logo-wrap cred-marquee-logo-wrap--wide">
+            <img class="cred-marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="" width="72" height="36" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="SAP Ariba" data-ar="SAP Ariba">SAP Ariba</strong>
+            <span data-en="Supplier network &amp; procurement" data-ar="شبكة الموردين والمشتريات">Supplier network &amp; procurement</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="-1">
+          <div class="cred-marquee-logo-wrap cred-marquee-logo-wrap--wide">
+            <img class="cred-marquee-logo" src="cred-logos/iso-9001.svg" alt="" width="72" height="44" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="ISO 9001" data-ar="ISO 9001">ISO 9001</strong>
+            <span data-en="Quality management systems" data-ar="أنظمة إدارة الجودة">Quality management systems</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="-1">
+          <div class="cred-marquee-logo-wrap">
+            <img class="cred-marquee-logo" src="cred-logos/fiber-laser.svg" alt="" width="48" height="48" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="Fiber Laser &amp; CNC" data-ar="ليزر ألياف و CNC">Fiber Laser &amp; CNC</strong>
+            <span data-en="Dammam &amp; Jubail facilities" data-ar="مرافق الدمام والجبيل">Dammam &amp; Jubail facilities</span>
+          </div>
+        </article>
+        <article class="cred-marquee-card" tabindex="-1">
+          <div class="cred-marquee-logo-wrap">
+            <img class="cred-marquee-logo" src="cred-logos/aws-welding.svg" alt="" width="48" height="48" loading="lazy" decoding="async">
+          </div>
+          <div class="cred-text">
+            <strong data-en="AWS Welding" data-ar="لحام AWS">AWS Welding</strong>
+            <span data-en="Certified welding processes" data-ar="عمليات لحام معتمدة">Certified welding processes</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUR SERVICES -->
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:48px;">
+        <div>
+          <div class="section-label" data-en="What We Offer" data-ar="ما نقدمه">What We Offer</div>
+          <h2 class="section-title" data-en="Our <span>Service</span> Divisions" data-ar="أقسام <span>خدماتنا</span>">Our <span>Service</span> Divisions</h2>
+          <p class="section-subtitle" data-en="Six specialized divisions delivering integrated construction and fabrication solutions." data-ar="ستة أقسام متخصصة تقدم حلولاً متكاملة للبناء والتصنيع.">Six specialized divisions delivering integrated construction and fabrication solutions.</p>
+        </div>
+        <a style="padding:12px 24px;border-radius:10px;background:transparent;border:1.5px solid var(--gray-200);color:var(--gray-800);font-size:14px;font-weight:600;cursor:pointer;display:inline-block;text-decoration:none;box-sizing:border-box;" href="services.html" data-en="View All Services →" data-ar="عرض جميع الخدمات →">View All Services →</a>
+      </div>
+
+      <div class="offer-honeycomb" aria-label="Service divisions">
+        <div class="offer-hex-group offer-hex-group--top">
+          <a class="offer-hex" href="services.html#general">
+            <div class="offer-hex-inner">
+              <div class="offer-core">
+                <div class="offer-icon">🏗️</div>
+                <h3 data-en="General Construction" data-ar="البناء العام">General Construction</h3>
+              </div>
+            </div>
+          </a>
+          <div class="offer-detail offer-detail--right">
+            <p data-en="End-to-end civil delivery including site prep, excavation, reinforced foundations, structural framing, masonry, and full site development with handover support." data-ar="تنفيذ مدني متكامل يشمل تجهيز الموقع والحفر والأساسات المسلحة والهيكل الإنشائي وأعمال البناء والتطوير الكامل للموقع مع دعم التسليم.">End-to-end civil delivery including site prep, excavation, reinforced foundations, structural framing, masonry, and full site development with handover support.</p>
+          </div>
+        </div>
+        <div class="offer-hex-group offer-hex-group--upper-right">
+          <a class="offer-hex" href="services.html#electrical">
+            <div class="offer-hex-inner">
+              <div class="offer-core">
+                <div class="offer-icon">⚡</div>
+                <h3 data-en="Electrical" data-ar="كهرباء">Electrical</h3>
+              </div>
+            </div>
+          </a>
+          <div class="offer-detail offer-detail--right">
+            <p data-en="Complete electrical scope from engineering design and load planning to power distribution panels, lighting systems, backup power integration, testing, and certification." data-ar="نطاق كهربائي متكامل من التصميم الهندسي وتخطيط الأحمال إلى لوحات التوزيع وأنظمة الإضاءة ودمج الطاقة الاحتياطية والاختبارات والاعتماد.">Complete electrical scope from engineering design and load planning to power distribution panels, lighting systems, backup power integration, testing, and certification.</p>
+          </div>
+        </div>
+        <div class="offer-hex-group offer-hex-group--lower-right">
+          <a class="offer-hex" href="services.html#hvac">
+            <div class="offer-hex-inner">
+              <div class="offer-core">
+                <div class="offer-icon">❄️</div>
+                <h3 data-en="HVAC" data-ar="تكييف وتهوية">HVAC</h3>
+              </div>
+            </div>
+          </a>
+          <div class="offer-detail offer-detail--right">
+            <p data-en="Advanced HVAC solutions including central AC and VRF systems, ventilation planning, duct fabrication and distribution, energy-optimized controls, and maintenance contracts." data-ar="حلول HVAC متقدمة تشمل التكييف المركزي وأنظمة VRF وتخطيط التهوية وتصنيع وتوزيع مجاري الهواء وأنظمة تحكم موفرة للطاقة وعقود الصيانة.">Advanced HVAC solutions including central AC and VRF systems, ventilation planning, duct fabrication and distribution, energy-optimized controls, and maintenance contracts.</p>
+          </div>
+        </div>
+        <div class="offer-hex offer-hex--center" aria-hidden="true">
+          <div class="offer-hex-inner">
+            <div class="offer-center-mark">NEXGEN</div>
+          </div>
+        </div>
+        <div class="offer-hex-group offer-hex-group--bottom">
+          <a class="offer-hex" href="services.html#sanitary">
+            <div class="offer-hex-inner">
+              <div class="offer-core">
+                <div class="offer-icon">🔧</div>
+                <h3 data-en="Sanitary" data-ar="صحي">Sanitary</h3>
+              </div>
+            </div>
+          </a>
+          <div class="offer-detail offer-detail--left">
+            <p data-en="Full sanitary systems covering water supply networks, drainage and sewage layouts, hot water circulation, fixture installation, leak repair, and long-term maintenance support." data-ar="أنظمة صحية متكاملة تشمل شبكات تغذية المياه ومخططات الصرف الصحي ودوران المياه الساخنة وتركيب التجهيزات وإصلاح التسربات ودعم الصيانة طويلة الأمد.">Full sanitary systems covering water supply networks, drainage and sewage layouts, hot water circulation, fixture installation, leak repair, and long-term maintenance support.</p>
+          </div>
+        </div>
+        <div class="offer-hex-group offer-hex-group--lower-left">
+          <a class="offer-hex" href="services.html#waterproofing">
+            <div class="offer-hex-inner">
+              <div class="offer-core">
+                <div class="offer-icon">🛡️</div>
+                <h3 data-en="Waterproofing" data-ar="العزل المائي">Waterproofing</h3>
+              </div>
+            </div>
+          </a>
+          <div class="offer-detail offer-detail--left">
+            <p data-en="Specialized waterproofing for foundations, roofs, wet areas, tanks, and movement joints using proven membrane and coating systems for long-term structural protection." data-ar="عزل مائي متخصص للأساسات والأسطح والمناطق الرطبة والخزانات وفواصل الحركة باستخدام أنظمة أغشية وطلاءات مجربة لحماية إنشائية طويلة الأمد.">Specialized waterproofing for foundations, roofs, wet areas, tanks, and movement joints using proven membrane and coating systems for long-term structural protection.</p>
+          </div>
+        </div>
+        <div class="offer-hex-group offer-hex-group--upper-left">
+          <a class="offer-hex" href="services.html#fire">
+            <div class="offer-hex-inner">
+              <div class="offer-core">
+                <div class="offer-icon">🔥</div>
+                <h3 data-en="Fire Fighting" data-ar="إطفاء الحريق">Fire Fighting</h3>
+              </div>
+            </div>
+          </a>
+          <div class="offer-detail offer-detail--left">
+            <p data-en="Comprehensive fire protection including engineered sprinkler networks, alarm and detection systems, hydrant and hose reels, suppression systems, testing, and annual maintenance." data-ar="حماية شاملة من الحريق تشمل شبكات الرش الهندسية وأنظمة الإنذار والكشف وشبكات الخراطيم والبكرات وأنظمة الإخماد والاختبارات والصيانة السنوية.">Comprehensive fire protection including engineered sprinkler networks, alarm and detection systems, hydrant and hose reels, suppression systems, testing, and annual maintenance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED GALLERY -->
+  <section class="section" style="background:var(--cream);">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;">
+        <div>
+          <div class="section-label" data-en="Interactive Preview" data-ar="معاينة تفاعلية">Interactive Preview</div>
+          <h2 class="section-title" data-en="Featured <span>Gallery</span>" data-ar="<span>معرض</span> مميز">Featured <span>Gallery</span></h2>
+          <p class="section-subtitle" data-en="Hover a topic to preview the image, then click the row to open that area of the site." data-ar="مرّر على عنصر لمعاينة الصورة، ثم انقر الصف لفتح ذلك القسم.">Hover a topic to preview the image, then click the row to open that area of the site.</p>
+        </div>
+        <a style="padding:12px 24px;border-radius:10px;background:var(--white);border:1.5px solid var(--gray-200);color:var(--gray-800);font-size:14px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-sm);display:inline-block;text-decoration:none;box-sizing:border-box;" href="about.html" data-en="Learn About Us →" data-ar="تعرف علينا →">Learn About Us →</a>
+      </div>
+
+      <div class="gallery-hover-root" id="featured-hover-gallery">
+        <div class="gallery-hover-preview">
+          <div class="gallery-hover-slides">
+            <img class="gallery-hover-slide is-active" src="Picture1.jpg" alt="" data-alt-en="Company overview preview" data-alt-ar="معاينة نبذة عن الشركة" data-gallery-index="0" width="960" height="720" decoding="async" fetchpriority="high">
+            <img class="gallery-hover-slide" src="Picture2.jpg" alt="" data-alt-en="General construction preview" data-alt-ar="معاينة البناء العام" data-gallery-index="1" width="960" height="720" decoding="async" loading="lazy">
+            <img class="gallery-hover-slide" src="Picture3.jpg" alt="" data-alt-en="Electrical systems preview" data-alt-ar="معاينة الأنظمة الكهربائية" data-gallery-index="2" width="960" height="720" decoding="async" loading="lazy">
+            <img class="gallery-hover-slide" src="Picture4.jpg" alt="" data-alt-en="Industrial workshop preview" data-alt-ar="معاينة الورشة الصناعية" data-gallery-index="3" width="960" height="720" decoding="async" loading="lazy">
+            <img class="gallery-hover-slide" src="Picture5.jpg" alt="" data-alt-en="Waterproofing preview" data-alt-ar="معاينة العزل المائي" data-gallery-index="4" width="960" height="720" decoding="async" loading="lazy">
+            <img class="gallery-hover-slide" src="Picture6.jpg" alt="" data-alt-en="Contact preview" data-alt-ar="معاينة التواصل" data-gallery-index="5" width="960" height="720" decoding="async" loading="lazy">
+          </div>
+          <div class="gallery-hover-vignette" aria-hidden="true"></div>
+        </div>
+        <div class="gallery-hover-list" role="navigation" aria-label="Featured gallery destinations">
+          <a class="gallery-hover-row is-active" href="about.html" data-gallery-index="0" aria-current="true" aria-label="Open About Us">
+            <span class="gallery-hover-idx" aria-hidden="true">01</span>
+            <div>
+              <div class="gallery-title" data-en="Company Overview" data-ar="نبذة عن الشركة">Company Overview</div>
+              <div class="gallery-desc" data-en="Who we are, what we do, and why clients trust NexGen Build." data-ar="من نحن وماذا نقدم ولماذا يثق العملاء بنا.">Who we are, what we do, and why clients trust NexGen Build.</div>
+            </div>
+            <span class="gallery-hover-go" data-en="Open →" data-ar="افتح →">Open →</span>
+          </a>
+          <a class="gallery-hover-row" href="services.html#general" data-gallery-index="1" aria-label="Open General Construction services">
+            <span class="gallery-hover-idx" aria-hidden="true">02</span>
+            <div>
+              <div class="gallery-title" data-en="General Construction" data-ar="البناء العام">General Construction</div>
+              <div class="gallery-desc" data-en="Foundations, civil works, masonry, and complete build execution." data-ar="الأساسات والأعمال المدنية والبناء والتنفيذ الكامل.">Foundations, civil works, masonry, and complete build execution.</div>
+            </div>
+            <span class="gallery-hover-go" data-en="Explore →" data-ar="استكشف →">Explore →</span>
+          </a>
+          <a class="gallery-hover-row" href="services.html#electrical" data-gallery-index="2" aria-label="Open Electrical services">
+            <span class="gallery-hover-idx" aria-hidden="true">03</span>
+            <div>
+              <div class="gallery-title" data-en="Electrical Systems" data-ar="الأنظمة الكهربائية">Electrical Systems</div>
+              <div class="gallery-desc" data-en="Design, installation, certification, and ongoing maintenance support." data-ar="تصميم وتركيب واعتماد ودعم صيانة مستمر.">Design, installation, certification, and ongoing maintenance support.</div>
+            </div>
+            <span class="gallery-hover-go" data-en="View →" data-ar="عرض →">View →</span>
+          </a>
+          <a class="gallery-hover-row" href="workshop.html" data-gallery-index="3" aria-label="Open Workshop page">
+            <span class="gallery-hover-idx" aria-hidden="true">04</span>
+            <div>
+              <div class="gallery-title" data-en="Industrial Workshop" data-ar="الورشة الصناعية">Industrial Workshop</div>
+              <div class="gallery-desc" data-en="CNC laser cutting, machining, metal fabrication, and welding." data-ar="قطع ليزر CNC وتشغيل وتصنيع معادن ولحام.">CNC laser cutting, machining, metal fabrication, and welding.</div>
+            </div>
+            <span class="gallery-hover-go" data-en="See →" data-ar="عرض →">See →</span>
+          </a>
+          <a class="gallery-hover-row" href="services.html#waterproofing" data-gallery-index="4" aria-label="Open Waterproofing services">
+            <span class="gallery-hover-idx" aria-hidden="true">05</span>
+            <div>
+              <div class="gallery-title" data-en="Waterproofing" data-ar="العزل المائي">Waterproofing</div>
+              <div class="gallery-desc" data-en="Roof, wet areas, tanks, joints — durable sealing and protection." data-ar="الأسطح والمناطق الرطبة والخزانات والفواصل — حماية وعزل متين.">Roof, wet areas, tanks, joints — durable sealing and protection.</div>
+            </div>
+            <span class="gallery-hover-go" data-en="Open →" data-ar="افتح →">Open →</span>
+          </a>
+          <a class="gallery-hover-row" href="contact.html" data-gallery-index="5" aria-label="Open Contact page">
+            <span class="gallery-hover-idx" aria-hidden="true">06</span>
+            <div>
+              <div class="gallery-title" data-en="Get in Touch" data-ar="تواصل معنا">Get in Touch</div>
+              <div class="gallery-desc" data-en="Request a quote, ask a question, or book a site visit with our team." data-ar="اطلب عرض سعر أو اطرح سؤالاً أو احجز زيارة ميدانية مع فريقنا.">Request a quote, ask a question, or book a site visit with our team.</div>
+            </div>
+            <span class="gallery-hover-go" data-en="Contact →" data-ar="اتصل →">Contact →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY NEXGEN -->
+  <section class="section why-section">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-left">
+          <div class="section-label" data-en="Why Choose Us" data-ar="لماذا تختارنا">Why Choose Us</div>
+          <h2 class="section-title">
+            <span data-en="Your Trusted" data-ar="شريكك الموثوق">Your Trusted</span>
+            <span class="accent"><br><span data-en="Construction Partner" data-ar="في البناء">Construction Partner</span></span>
+          </h2>
+          <p class="section-subtitle" data-en="NexGen Build combines deep technical expertise with a commitment to safety, quality, and on-time delivery across all project scales." data-ar="تجمع شركة نكست جن بيلد بين الخبرة التقنية العميقة والالتزام بالسلامة والجودة والتسليم في الوقت المحدد.">NexGen Build combines deep technical expertise with a commitment to safety, quality, and on-time delivery across all project scales.</p>
+          <div class="why-features">
+            <div class="why-feature">
+              <div class="why-feature-icon">🏆</div>
+              <h4 data-en="Integrated Expertise" data-ar="خبرة متكاملة">Integrated Expertise</h4>
+              <p data-en="Five specialized divisions under one roof — no need for multiple contractors." data-ar="خمسة أقسام متخصصة تحت سقف واحد.">Five specialized divisions under one roof.</p>
+            </div>
+            <div class="why-feature">
+              <div class="why-feature-icon">✅</div>
+              <h4 data-en="Certified Professionals" data-ar="متخصصون معتمدون">Certified Professionals</h4>
+              <p data-en="Experienced, qualified technical team with AWS-certified welders." data-ar="فريق فني مؤهل وذو خبرة مع لحامين معتمدين من AWS.">Experienced, qualified technical team.</p>
+            </div>
+            <div class="why-feature">
+              <div class="why-feature-icon">🛡️</div>
+              <h4 data-en="Safety Compliance" data-ar="الامتثال للسلامة">Safety Compliance</h4>
+              <p data-en="Strict adherence to safety standards and international codes on every project." data-ar="التزام صارم بمعايير السلامة والأكواد الدولية في كل مشروع.">Strict adherence to safety standards.</p>
+            </div>
+            <div class="why-feature">
+              <div class="why-feature-icon">⏱️</div>
+              <h4 data-en="Timely Delivery" data-ar="التسليم في الوقت المحدد">Timely Delivery</h4>
+              <p data-en="Efficient project management with transparent communication throughout." data-ar="إدارة فعالة للمشروع مع تواصل شفاف طوال المدة.">Efficient project management.</p>
+            </div>
+          </div>
+        </div>
+        <div class="why-right">
+          <div class="why-stat-card">
+            <div class="why-stat-num"><span class="loader-counter" data-from="8" data-to="1" data-mode="loader" data-duration="2.4" data-prefix="&lt;" data-suffix="%">8</span></div>
+            <div class="why-stat-label" data-en="Weld Rejection Rate" data-ar="معدل رفض اللحام">Weld Rejection Rate</div>
+          </div>
+          <div class="why-stat-card">
+            <div class="why-stat-num why-stat-split">
+              <span class="loader-counter" data-from="0" data-to="24" data-mode="loader" data-duration="2.2">0</span><span class="why-slash">/</span><span class="loader-counter" data-from="0" data-to="7" data-mode="loader" data-duration="2.2">0</span>
+            </div>
+            <div class="why-stat-label" data-en="Support & Maintenance Available" data-ar="دعم وصيانة متاحة">Support Available</div>
+          </div>
+          <div class="why-stat-card">
+            <div class="why-stat-num"><span class="loader-counter" data-from="0" data-to="2" data-mode="loader" data-duration="2">0</span></div>
+            <div class="why-stat-label" data-en="Workshop Locations: Dammam & Jubail" data-ar="مواقع ورش العمل: الدمام والجبيل">Workshop Locations</div>
+          </div>
+          <div class="why-stat-card">
+            <div class="why-stat-num"><span class="loader-counter" data-from="0" data-to="3" data-mode="loader" data-duration="1.8" data-finish-symbol="∞">0</span></div>
+            <div class="why-stat-label" data-en="Micron-level CNC Accuracy" data-ar="دقة CNC على مستوى الميكرون">Micron-level CNC Accuracy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="home-cta-strip">
+    <div class="container home-cta-inner">
+      <div>
+        <h2 class="cta-strip-title" style="font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,3vw,42px);font-weight:800;color:white;line-height:1.1;" data-en="Ready to Start Your Project?" data-ar="هل أنت مستعد لبدء مشروعك؟">Ready to Start Your Project?</h2>
+        <p style="color:rgba(255,255,255,0.75);font-size:16px;margin-top:8px;" data-en="Contact us today and let's build your vision together." data-ar="تواصل معنا اليوم ولنبني رؤيتك معاً.">Contact us today and let's build your vision together.</p>
+      </div>
+      <a class="home-cta-btn" href="contact.html" data-en="Get in Touch →" data-ar="تواصل معنا →">Get in Touch →</a>
+    </div>
+  </section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:0;">
+          <img src="logo.png" alt="NexGen Build logo" height="44" />
+        </div>
+        <p data-en="Comprehensive construction and industrial fabrication solutions. Trusted by Saudi Aramco and Saudi Energy. Building the future of the Kingdom." data-ar="حلول شاملة للبناء والتصنيع الصناعي. موثوق به من أرامكو السعودية والطاقة السعودية. نبني مستقبل المملكة.">Comprehensive construction and industrial fabrication solutions. Trusted by Saudi Aramco and Saudi Energy.</p>
+        <div class="footer-contact-info">
+          <a href="mailto:H.zaman@Nxgens.com">📧 H.zaman@Nxgens.com</a>
+          <a>📍 <span data-en="Dammam, Saudi Arabia" data-ar="الدمام، المملكة العربية السعودية">Dammam, Saudi Arabia</span></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+        <div class="footer-links">
+          <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+          <a href="about.html" data-en="About Us" data-ar="عن الشركة">About Us</a>
+          <a href="services.html" data-en="Services" data-ar="الخدمات">Services</a>
+          <a href="workshop.html" data-en="Workshop" data-ar="الورشة">Workshop</a>
+          <a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Construction" data-ar="البناء">Construction</h4>
+        <div class="footer-links">
+          <a href="services.html#general" data-en="General Construction" data-ar="البناء العام">General Construction</a>
+          <a href="services.html#electrical" data-en="Electrical Services" data-ar="كهرباء">Electrical</a>
+          <a href="services.html#sanitary" data-en="Sanitary Services" data-ar="صحي">Sanitary</a>
+          <a href="services.html#hvac" data-en="HVAC" data-ar="تكييف وتهوية">HVAC</a>
+          <a href="services.html#waterproofing" data-en="Waterproofing" data-ar="عزل مائي">Waterproofing</a>
+          <a href="services.html#fire" data-en="Fire Fighting" data-ar="إطفاء حريق">Fire Fighting</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Industrial" data-ar="صناعي">Industrial</h4>
+        <div class="footer-links">
+          <a href="workshop.html" data-en="CNC Laser Cutting" data-ar="قطع ليزر">CNC Laser Cutting</a>
+          <a href="workshop.html" data-en="CNC Machining" data-ar="خراطة">CNC Machining</a>
+          <a href="workshop.html" data-en="Metal Fabrication" data-ar="تصنيع معدني">Metal Fabrication</a>
+          <a href="workshop.html" data-en="Welding" data-ar="لحام">Welding</a>
+          <a href="workshop.html" data-en="Leak Repair" data-ar="إصلاح تسرب">Leak Repair</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <span>NexGen Build Company</span>. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.25);" data-en="Saudi Aramco Vendor #10119021 · Saudi Energy Approved Supplier" data-ar="مورد أرامكو السعودية #10119021 · مورد معتمد لدى الطاقة السعودية">Saudi Aramco Vendor #10119021 · Saudi Energy Approved Supplier</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Replace 966555123456 with your WhatsApp number: country code + number, no + or spaces -->
+<a href="https://wa.me/966555123456" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+<script src="main.js" defer></script>
+</body>
+</html>

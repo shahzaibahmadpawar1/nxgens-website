@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>About Us — NexGen Build Company</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" href="./favicon.png">
+<link rel="apple-touch-icon" href="./favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Barlow+Condensed:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<script>
+try {
+  var __t = localStorage.getItem('theme');
+  if (__t === 'light' || __t === 'dark') {
+    document.documentElement.setAttribute('toggle-theme', __t);
+    document.body.setAttribute('toggle-theme', __t);
+  }
+} catch (e) {}
+</script>
+<!-- Shared nav — keep in sync across pages -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="logo.png" alt="NexGen Build logo" height="44" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+      <li><a href="about.html" class="active" data-en="About Us" data-ar="عن الشركة">About Us</a></li>
+      <li><a href="services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
+      <li><a href="workshop.html" data-en="Workshop" data-ar="الورشة">Workshop</a></li>
+      <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button type="button" class="theme-toggle" id="btn-theme" aria-pressed="false" aria-label="Toggle color theme" title="Theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>
+      </button>
+      <div class="lang-toggle">
+        <button type="button" class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button type="button" class="lang-btn" id="btn-ar" onclick="setLang('ar')">AR</button>
+      </div>
+      <a class="btn-quote" href="contact.html" data-en="Get a Quote" data-ar="طلب عرض سعر">Get a Quote</a>
+      <div class="hamburger" onclick="toggleMobile()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <a href="about.html" data-en="About Us" data-ar="عن الشركة">About Us</a>
+  <a href="services.html" data-en="Services" data-ar="الخدمات">Services</a>
+  <a href="workshop.html" data-en="Workshop" data-ar="الورشة">Workshop</a>
+  <a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+  <div class="mobile-lang">
+    <button type="button" class="lang-btn active" id="m-btn-en" onclick="setLang('en')">EN</button>
+    <button type="button" class="lang-btn" id="m-btn-ar" onclick="setLang('ar')">AR</button>
+  </div>
+  <div class="mobile-theme">
+    <span data-en="Theme" data-ar="المظهر">Theme</span>
+    <button type="button" class="theme-toggle" id="m-btn-theme" aria-pressed="false" aria-label="Toggle color theme" title="Theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</div>
+
+
+  <section class="about-hero">
+    <div class="about-hero-bg"></div>
+    <div class="hero-infinite-grid" aria-hidden="true"></div>
+    <div class="container about-hero-content">
+      <div class="page-breadcrumb">
+        <a href="index.html" style="cursor:pointer;text-decoration:none;color:inherit;" data-en="Home" data-ar="الرئيسية">Home</a>
+        &nbsp;/&nbsp;
+        <span data-en="About Us" data-ar="عن الشركة">About Us</span>
+      </div>
+      <h1 data-en="About <span>NexGen</span> Build Company" data-ar="عن <span>نكست جن</span> بيلد">About <span>NexGen</span> Build Company</h1>
+      <p data-en="A leading provider of comprehensive construction and industrial fabrication services, trusted by Saudi Aramco and Saudi Energy." data-ar="مزود رائد لخدمات البناء والتصنيع الصناعي الشامل، موثوق به من قبل أرامكو السعودية والطاقة السعودية.">A leading provider of comprehensive construction and industrial fabrication services, trusted by Saudi Aramco and Saudi Energy.</p>
+    </div>
+  </section>
+
+  <section class="about-mission">
+    <div class="container">
+      <div class="about-mission-grid">
+        <div class="about-story-row">
+          <div class="mission-text">
+            <div class="section-label" data-en="Our Story" data-ar="قصتنا">Our Story</div>
+            <h2 class="section-title" data-en="Building Trust Through <span>Excellence</span>" data-ar="بناء الثقة من خلال <span>التميز</span>">Building Trust Through <span>Excellence</span></h2>
+            <p data-en="NexGen Build Company is a leading provider of comprehensive construction services, specializing in delivering excellence across multiple construction disciplines. With years of experience and a team of highly skilled professionals, we have established ourselves as a trusted partner for commercial, residential, and industrial projects." data-ar="شركة نكست جن بيلد هي مزود رائد لخدمات البناء الشاملة، متخصصة في تقديم التميز عبر تخصصات بناء متعددة. بفضل سنوات من الخبرة وفريق من المحترفين ذوي المهارات العالية.">NexGen Build Company is a leading provider of comprehensive construction services, specializing in delivering excellence across multiple construction disciplines. With years of experience and a team of highly skilled professionals, we have established ourselves as a trusted partner for commercial, residential, and industrial projects.</p>
+            <p data-en="Our commitment to quality, safety, and timely delivery has earned us a reputation for excellence in the construction industry. We combine modern techniques with proven methodologies to ensure every project meets the highest standards." data-ar="إن التزامنا بالجودة والسلامة والتسليم في الوقت المناسب أكسبنا سمعة ممتازة في صناعة البناء. نجمع بين التقنيات الحديثة والمنهجيات المجربة لضمان تلبية كل مشروع لأعلى المعايير.">Our commitment to quality, safety, and timely delivery has earned us a reputation for excellence in the construction industry. We combine modern techniques with proven methodologies to ensure every project meets the highest standards.</p>
+            <p data-en="Based in Dammam, Saudi Arabia, NexGen Build also operates as a premier industrial solutions provider specializing in high-precision CNC Laser Cutting, Engraving, and Advanced Routing — catering to the construction, oil & gas, and architectural sectors." data-ar="تتخذ شركة نكست جن بيلد من الدمام، المملكة العربية السعودية مقراً لها، وتعمل أيضاً كمزود متميز للحلول الصناعية متخصص في القطع بالليزر CNC عالي الدقة والنقش والتوجيه المتقدم.">Based in Dammam, Saudi Arabia, NexGen Build also operates as a premier industrial solutions provider specializing in high-precision CNC Laser Cutting, Engraving, and Advanced Routing — catering to the construction, oil & gas, and architectural sectors.</p>
+          </div>
+          <div class="about-photo fill">
+            <video src="video2.mp4" class="about-story-video" muted loop playsinline autoplay preload="metadata" aria-label="NexGen Build — Our story preview video"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-section" aria-labelledby="timeline-heading">
+    <div class="container">
+      <div class="timeline-section-header">
+        <div class="section-label timeline-section-eyebrow" data-en="Our Journey" data-ar="رحلتنا">Our Journey</div>
+        <h2 id="timeline-heading" class="section-title timeline-section-title" data-en="Key <span>Milestones</span>" data-ar="<span>المحطات</span> الرئيسية">Key <span>Milestones</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="timeline-year" data-en="Founded" data-ar="التأسيس">Founded</div>
+            <div class="timeline-title" data-en="NexGen Build Company Established" data-ar="تأسيس شركة نكست جن للبناء">NexGen Build Company Established</div>
+            <div class="timeline-desc" data-en="Company founded in Dammam, Saudi Arabia with a vision to deliver integrated construction solutions." data-ar="تأسست الشركة في الدمام، المملكة العربية السعودية برؤية لتقديم حلول بناء متكاملة.">Company founded in Dammam, Saudi Arabia with a vision to deliver integrated construction solutions.</div>
+          </div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="timeline-year" data-en="Expansion" data-ar="التوسع">Expansion</div>
+            <div class="timeline-title" data-en="Industrial &amp; Workshop Capabilities" data-ar="القدرات الصناعية والورشة">Industrial &amp; Workshop Capabilities</div>
+            <div class="timeline-desc" data-en="Expanded precision fabrication with CNC laser cutting, machining, and metal works to serve construction, oil &amp; gas, and architectural clients." data-ar="توسيع التصنيع الدقيق بقطع الليزر CNC والخراطة والأعمال المعدنية لخدمة عملاء البناء والنفط والغاز والهندسة المعمارية.">Expanded precision fabrication with CNC laser cutting, machining, and metal works to serve construction, oil &amp; gas, and architectural clients.</div>
+          </div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="timeline-year" data-en="Saudi Aramco" data-ar="أرامكو السعودية">Saudi Aramco</div>
+            <div class="timeline-title" data-en="Approved Supplier Registration" data-ar="تسجيل كمورد معتمد">Approved Supplier Registration</div>
+            <div class="timeline-desc" data-en="Registered in the Saudi Aramco Supplier Management System — Vendor Code 10119021 (approved March 30, 2026)." data-ar="مسجلة في نظام إدارة الموردين لأرامكو السعودية — رمز المورد 10119021 (اعتماد 30 مارس 2026).">Registered in the Saudi Aramco Supplier Management System — Vendor Code 10119021 (approved March 30, 2026).</div>
+          </div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-3">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="timeline-year" data-en="Saudi Energy" data-ar="الطاقة السعودية">Saudi Energy</div>
+            <div class="timeline-title" data-en="SAP Ariba Supplier Approval" data-ar="اعتماد مورد عبر SAP Ariba">SAP Ariba Supplier Approval</div>
+            <div class="timeline-desc" data-en="Included in the Saudi Energy supplier database via the SAP Ariba platform (April 1, 2026)." data-ar="الإدراج في قاعدة بيانات موردي الطاقة السعودية عبر منصة SAP Ariba (1 أبريل 2026).">Included in the Saudi Energy supplier database via the SAP Ariba platform (April 1, 2026).</div>
+          </div>
+        </div>
+        <div class="timeline-item reveal reveal-delay-4">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <div class="timeline-year" data-en="Today" data-ar="اليوم">Today</div>
+            <div class="timeline-title" data-en="Integrated Construction &amp; Fabrication" data-ar="بناء وتصنيع متكامل">Integrated Construction &amp; Fabrication</div>
+            <div class="timeline-desc" data-en="One team delivering civil, MEP, and industrial fabrication — trusted by major energy sector partners across the Eastern Province." data-ar="فريق واحد يقدم الأعمال المدنية والخدمات الكهروميكانيكية والتصنيع الصناعي — موثوق به لدى شركاء رئيسيين في قطاع الطاقة بالمنطقة الشرقية.">One team delivering civil, MEP, and industrial fabrication — trusted by major energy sector partners across the Eastern Province.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-cred-values-split">
+    <div class="container about-cred-values-inner">
+      <div class="about-credentials-col">
+        <div class="section-label" data-en="Credentials" data-ar="الاعتمادات">Credentials</div>
+        <h2 class="section-title" data-en="Trusted by <span>Industry Leaders</span>" data-ar="موثوق به من قبل <span>قادة الصناعة</span>">Trusted by <span>Industry Leaders</span></h2>
+        <p class="section-subtitle" data-en="NexGen Build Company is an approved vendor for two of Saudi Arabia's most prominent energy companies." data-ar="شركة نكست جن بيلد هي مورد معتمد لاثنتين من أبرز شركات الطاقة في المملكة العربية السعودية.">NexGen Build Company is an approved vendor for two of Saudi Arabia's most prominent energy companies.</p>
+        <div class="credentials-cards">
+          <div class="cred-card">
+            <div class="cred-card-header">
+              <div class="cred-logo green">SA</div>
+              <div>
+                <h3 data-en="Saudi Aramco" data-ar="أرامكو السعودية">Saudi Aramco</h3>
+                <span data-en="✓ Approved Supplier" data-ar="✓ مورد معتمد">✓ Approved Supplier</span>
+              </div>
+            </div>
+            <p data-en="NexGen Build Company is registered in the Saudi Aramco Supplier Management System. Approved March 30, 2026 — Vendor Code No. 10119021." data-ar="شركة نكست جن بيلد مسجلة في نظام إدارة الموردين لأرامكو السعودية. معتمدة في 30 مارس 2026 — رمز المورد رقم 10119021.">NexGen Build Company is registered in the Saudi Aramco Supplier Management System. Approved March 30, 2026 — Vendor Code No. 10119021.</p>
+            <div class="cred-detail cred-detail--split">
+              <div class="cred-detail-item">
+                <span data-en="Vendor Code" data-ar="رمز المورد">Vendor Code</span>
+                <strong>10119021</strong>
+              </div>
+              <div class="cred-detail-item">
+                <span data-en="CR Number" data-ar="رقم السجل التجاري">CR Number</span>
+                <strong>7051557606</strong>
+              </div>
+            </div>
+          </div>
+          <div class="cred-card">
+            <div class="cred-card-header">
+              <div class="cred-logo blue">SE</div>
+              <div>
+                <h3 data-en="Saudi Energy" data-ar="الطاقة السعودية">Saudi Energy</h3>
+                <span data-en="✓ Registered Supplier" data-ar="✓ مورد مسجل">✓ Registered Supplier</span>
+              </div>
+            </div>
+            <p data-en="NexGen Build Company has been included in the supplier database of Saudi Energy, approved via SAP Ariba platform on April 1, 2026." data-ar="تم إدراج شركة نكست جن بيلد في قاعدة بيانات موردي الطاقة السعودية، معتمدة عبر منصة SAP Ariba في 1 أبريل 2026.">NexGen Build Company has been included in the supplier database of Saudi Energy, approved via SAP Ariba platform on April 1, 2026.</p>
+            <div class="cred-detail cred-detail--split">
+              <div class="cred-detail-item">
+                <span data-en="Approval Date" data-ar="تاريخ الموافقة">Approval Date</span>
+                <strong data-en="April 1, 2026" data-ar="1 أبريل 2026">April 1, 2026</strong>
+              </div>
+              <div class="cred-detail-item">
+                <span data-en="Platform" data-ar="المنصة">Platform</span>
+                <strong>SAP Ariba</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-values-col">
+        <div class="section-label" data-en="Our Values" data-ar="قيمنا">Our Values</div>
+        <h2 class="section-title" data-en="The <span>Principles</span> We Build On" data-ar="<span>المبادئ</span> التي نبني عليها">The <span>Principles</span> We Build On</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">🏅</div>
+            <h3 data-en="Quality Assurance" data-ar="ضمان الجودة">Quality Assurance</h3>
+            <p data-en="Premium materials and modern construction methods on every single project." data-ar="مواد متميزة وأساليب بناء حديثة في كل مشروع.">Premium materials and modern construction methods on every single project.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🛡️</div>
+            <h3 data-en="Safety First" data-ar="السلامة أولاً">Safety First</h3>
+            <p data-en="Strict adherence to safety standards and codes — zero compromise on worker and site safety." data-ar="الالتزام الصارم بمعايير وأكواد السلامة — لا تنازل في سلامة العمال والموقع.">Strict adherence to safety standards — zero compromise.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">⏱️</div>
+            <h3 data-en="Timely Delivery" data-ar="الالتزام بالمواعيد">Timely Delivery</h3>
+            <p data-en="Efficient project management and transparent communication ensure delivery on schedule." data-ar="إدارة فعالة للمشاريع وتواصل شفاف لضمان التسليم في الموعد المحدد.">Efficient project management ensures on-time delivery.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3 data-en="Client Satisfaction" data-ar="رضا العملاء">Client Satisfaction</h3>
+            <p data-en="Competitive pricing with comprehensive warranty support and after-service care." data-ar="أسعار تنافسية مع دعم شامل للضمان والرعاية بعد الخدمة.">Competitive pricing with warranty support.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🔬</div>
+            <h3 data-en="Precision Engineering" data-ar="الهندسة الدقيقة">Precision Engineering</h3>
+            <p data-en="Advanced CNC protocols achieving micron-level accuracy across all fabrication work." data-ar="بروتوكولات CNC متقدمة تحقق دقة على مستوى الميكرون في جميع أعمال التصنيع.">Advanced CNC protocols achieving micron-level accuracy.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🌿</div>
+            <h3 data-en="Innovation" data-ar="الابتكار">Innovation</h3>
+            <p data-en="Smart nesting software, fiber laser technology, and energy-efficient designs to minimize waste." data-ar="برنامج تعشيش ذكي وتقنية ليزر الألياف وتصاميم موفرة للطاقة للحد من الهدر.">Smart nesting software and fiber laser technology to minimize waste.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-testimonials-scroll" aria-label="Client testimonials">
+    <div class="about-ts-track">
+      <div class="about-ts-group">
+        <article class="about-ts-card">
+          <p class="about-ts-stars" aria-hidden="true">★★★★★</p>
+          <p class="about-ts-quote" data-en="NexGen delivered our industrial expansion on schedule with uncompromising safety and QA." data-ar="قدمت نكست جن توسعة منشآتنا الصناعية في الموعد مع جودة وسلامة لا مساومة عليها.">NexGen delivered our industrial expansion on schedule with uncompromising safety and QA.</p>
+          <div class="about-ts-footer">
+            <span class="about-ts-name" data-en="Faisal Al-Harbi" data-ar="فيصل الحربي">Faisal Al-Harbi</span>
+            <span class="about-ts-role" data-en="Project Director, Eastern Industrial Co." data-ar="مدير مشروع، شركة صناعية شرقية">Project Director, Eastern Industrial Co.</span>
+          </div>
+        </article>
+        <article class="about-ts-card">
+          <p class="about-ts-stars" aria-hidden="true">★★★★★</p>
+          <p class="about-ts-quote" data-en="Workshop fabrication matched our tightest tolerances — coordination with our engineers was excellent." data-ar="طابق تصنيع الورشة أصعب التفاوتات — التنسيق مع مهندسينا كان ممتازاً.">Workshop fabrication matched our tightest tolerances — coordination with our engineers was excellent.</p>
+          <div class="about-ts-footer">
+            <span class="about-ts-name" data-en="Eng. Layla Al-Mutairi" data-ar="م. ليلى المطيري">Eng. Layla Al-Mutairi</span>
+            <span class="about-ts-role" data-en="Lead Mechanical Engineer" data-ar="مهندسة ميكانيكية رئيسية">Lead Mechanical Engineer</span>
+          </div>
+        </article>
+        <article class="about-ts-card">
+          <p class="about-ts-stars" aria-hidden="true">★★★★★</p>
+          <p class="about-ts-quote" data-en="One coordinated team from civil works through commissioning made a complex site execution straightforward." data-ar="فريق واحد متناسق من الأعمال المدنية حتى التشغيل جعل تنفيذ الموقع المعقد سهلاً.">One coordinated team from civil works through commissioning made a complex site execution straightforward.</p>
+          <div class="about-ts-footer">
+            <span class="about-ts-name" data-en="Khalid Al-Dosari" data-ar="خالد الدوسري">Khalid Al-Dosari</span>
+            <span class="about-ts-role" data-en="Head of Facilities, Petrochemical Site" data-ar="رئيس المرافق، موقع بتروكيميائي">Head of Facilities, Petrochemical Site</span>
+          </div>
+        </article>
+        <article class="about-ts-card">
+          <p class="about-ts-stars" aria-hidden="true">★★★★★</p>
+          <p class="about-ts-quote" data-en="Saudi Aramco vendor documentation was handled meticulously — it materially reduced schedule risk for us." data-ar="عُولجت وثائق مورد أرامكو بدقة — خففت بشكل ملموس مخاطر الجدول الزمني.">Saudi Aramco vendor documentation was handled meticulously — it materially reduced schedule risk for us.</p>
+          <div class="about-ts-footer">
+            <span class="about-ts-name" data-en="Mariam Al-Qahtani" data-ar="مريم القحطاني">Mariam Al-Qahtani</span>
+            <span class="about-ts-role" data-en="Procurement Manager, EPC Contractor" data-ar="مديرة المشتريات، متعهد EPC">Procurement Manager, EPC Contractor</span>
+          </div>
+        </article>
+        <article class="about-ts-card">
+          <p class="about-ts-stars" aria-hidden="true">★★★★★</p>
+          <p class="about-ts-quote" data-en="Welding packages cleared third-party inspection first time, every time — rare in our experience." data-ar="اجتازت حزم اللحام فحص طرف ثالث من المرة الأولى دائماً — أمر نادر في خبرتنا.">Welding packages cleared third-party inspection first time, every time — rare in our experience.</p>
+          <div class="about-ts-footer">
+            <span class="about-ts-name" data-en="Sarah Al-Ghamdi" data-ar="سارة الغامدي">Sarah Al-Ghamdi</span>
+            <span class="about-ts-role" data-en="QA Lead, Power Sector Client" data-ar="رئيسة الجودة، عميل قطاع الطاقة">QA Lead, Power Sector Client</span>
+          </div>
+        </article>
+      </div>
+      <div class="about-ts-group" aria-hidden="true">
+        <article class="about-ts-card">
+          <p class="about-ts-stars" aria-hidden="true">★★★★★</p>
+          <p class="about-ts-quote" data-en="NexGen delivered our industrial expansion on schedule with uncompromising safety and QA." data-ar="قدمت نكست جن توسعة منشآتنا الصناعية في الموعد مع جودة وسلامة لا مساومة عليها.">NexGen delivered our industrial expansion on schedule with uncompromising safety and QA.</p>
+          <div class="about-ts-footer">
+            <span class="about-ts-name" data-en="Faisal Al-Harbi" data-ar="فيصل الحربي">Faisal Al-Harbi</span>
+            <span class="about-ts-role" data-en="Project Director, Eastern Industrial Co." data-ar="مدير مشروع، شركة صناعية شرقية">Project Director, Eastern Industrial Co.</span>
+          </div>
+        </article>
+        <article class="about-ts-card">
+          <p class="about-ts-stars" aria-hidden="true">★★★★★</p>
+          <p class="about-ts-quote" data-en="Workshop fabrication matched our tightest tolerances — coordination with our engineers was excellent." data-ar="طابق تصنيع الورشة أصعب التفاوتات — التنسيق مع مهندسينا كان ممتازاً.">Workshop fabrication matched our tightest tolerances — coordination with our engineers was excellent.</p>
+          <div class="about-ts-footer">
+            <span class="about-ts-name" data-en="Eng. Layla Al-Mutairi" data-ar="م. ليلى المطيري">Eng. Layla Al-Mutairi</span>
+            <span class="about-ts-role" data-en="Lead Mechanical Engineer" data-ar="مهندسة ميكانيكية رئيسية">Lead Mechanical Engineer</span>
+          </div>
+        </article>
+        <article class="about-ts-card">
+          <p class="about-ts-stars" aria-hidden="true">★★★★★</p>
+          <p class="about-ts-quote" data-en="One coordinated team from civil works through commissioning made a complex site execution straightforward." data-ar="فريق واحد متناسق من الأعمال المدنية حتى التشغيل جعل تنفيذ الموقع المعقد سهلاً.">One coordinated team from civil works through commissioning made a complex site execution straightforward.</p>
+          <div class="about-ts-footer">
+            <span class="about-ts-name" data-en="Khalid Al-Dosari" data-ar="خالد الدوسري">Khalid Al-Dosari</span>
+            <span class="about-ts-role" data-en="Head of Facilities, Petrochemical Site" data-ar="رئيس المرافق، موقع بتروكيميائي">Head of Facilities, Petrochemical Site</span>
+          </div>
+        </article>
+        <article class="about-ts-card">
+          <p class="about-ts-stars" aria-hidden="true">★★★★★</p>
+          <p class="about-ts-quote" data-en="Saudi Aramco vendor documentation was handled meticulously — it materially reduced schedule risk for us." data-ar="عُولجت وثائق مورد أرامكو بدقة — خففت بشكل ملموس مخاطر الجدول الزمني.">Saudi Aramco vendor documentation was handled meticulously — it materially reduced schedule risk for us.</p>
+          <div class="about-ts-footer">
+            <span class="about-ts-name" data-en="Mariam Al-Qahtani" data-ar="مريم القحطاني">Mariam Al-Qahtani</span>
+            <span class="about-ts-role" data-en="Procurement Manager, EPC Contractor" data-ar="مديرة المشتريات، متعهد EPC">Procurement Manager, EPC Contractor</span>
+          </div>
+        </article>
+        <article class="about-ts-card">
+          <p class="about-ts-stars" aria-hidden="true">★★★★★</p>
+          <p class="about-ts-quote" data-en="Welding packages cleared third-party inspection first time, every time — rare in our experience." data-ar="اجتازت حزم اللحام فحص طرف ثالث من المرة الأولى دائماً — أمر نادر في خبرتنا.">Welding packages cleared third-party inspection first time, every time — rare in our experience.</p>
+          <div class="about-ts-footer">
+            <span class="about-ts-name" data-en="Sarah Al-Ghamdi" data-ar="سارة الغامدي">Sarah Al-Ghamdi</span>
+            <span class="about-ts-role" data-en="QA Lead, Power Sector Client" data-ar="رئيسة الجودة، عميل قطاع الطاقة">QA Lead, Power Sector Client</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:0;">
+          <img src="logo.png" alt="NexGen Build logo" height="44" />
+        </div>
+        <p data-en="Comprehensive construction and industrial fabrication solutions. Trusted by Saudi Aramco and Saudi Energy. Building the future of the Kingdom." data-ar="حلول شاملة للبناء والتصنيع الصناعي. موثوق به من أرامكو السعودية والطاقة السعودية. نبني مستقبل المملكة.">Comprehensive construction and industrial fabrication solutions. Trusted by Saudi Aramco and Saudi Energy.</p>
+        <div class="footer-contact-info">
+          <a href="mailto:H.zaman@Nxgens.com">📧 H.zaman@Nxgens.com</a>
+          <a>📍 <span data-en="Dammam, Saudi Arabia" data-ar="الدمام، المملكة العربية السعودية">Dammam, Saudi Arabia</span></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+        <div class="footer-links">
+          <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+          <a href="about.html" data-en="About Us" data-ar="عن الشركة">About Us</a>
+          <a href="services.html" data-en="Services" data-ar="الخدمات">Services</a>
+          <a href="workshop.html" data-en="Workshop" data-ar="الورشة">Workshop</a>
+          <a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Construction" data-ar="البناء">Construction</h4>
+        <div class="footer-links">
+          <a href="services.html#general" data-en="General Construction" data-ar="البناء العام">General Construction</a>
+          <a href="services.html#electrical" data-en="Electrical Services" data-ar="كهرباء">Electrical</a>
+          <a href="services.html#sanitary" data-en="Sanitary Services" data-ar="صحي">Sanitary</a>
+          <a href="services.html#hvac" data-en="HVAC" data-ar="تكييف وتهوية">HVAC</a>
+          <a href="services.html#waterproofing" data-en="Waterproofing" data-ar="عزل مائي">Waterproofing</a>
+          <a href="services.html#fire" data-en="Fire Fighting" data-ar="إطفاء حريق">Fire Fighting</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Industrial" data-ar="صناعي">Industrial</h4>
+        <div class="footer-links">
+          <a href="workshop.html" data-en="CNC Laser Cutting" data-ar="قطع ليزر">CNC Laser Cutting</a>
+          <a href="workshop.html" data-en="CNC Machining" data-ar="خراطة">CNC Machining</a>
+          <a href="workshop.html" data-en="Metal Fabrication" data-ar="تصنيع معدني">Metal Fabrication</a>
+          <a href="workshop.html" data-en="Welding" data-ar="لحام">Welding</a>
+          <a href="workshop.html" data-en="Leak Repair" data-ar="إصلاح تسرب">Leak Repair</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <span>NexGen Build Company</span>. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.25);" data-en="Saudi Aramco Vendor #10119021 · Saudi Energy Approved Supplier" data-ar="مورد أرامكو السعودية #10119021 · مورد معتمد لدى الطاقة السعودية">Saudi Aramco Vendor #10119021 · Saudi Energy Approved Supplier</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Replace 966555123456 with your WhatsApp number: country code + number, no + or spaces -->
+<a href="https://wa.me/966555123456" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+<script src="main.js" defer></script>
+</body>
+</html>

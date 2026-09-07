@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" toggle-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Coming Soon - NexGen Build Company</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Barlow+Condensed:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* --- DESIGN TOKENS --- */
+    :root {
+      --navy: #0D2545;
+      --navy-mid: #163360;
+      --orange: #E8601A;
+      --orange-light: #F07A3A;
+      --peach: #F5C4A8;
+      --cream: #FAF7F4;
+      --white: #FFFFFF;
+      --gray-50: #F8F9FA;
+      --gray-100: #F07A3A20;
+      /* dynamic orange tint fallback */
+      --gray-200: #E2E5E9;
+      --gray-400: #9BA3AF;
+      --gray-600: #4B5563;
+      --gray-800: #1F2937;
+
+      --radius: 12px;
+      --radius-lg: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      /* Theme specific overrides */
+      --bg: var(--cream);
+      --text-main: var(--gray-800);
+      --text-muted: var(--gray-600);
+      --card-bg: rgba(255, 255, 255, 0.75);
+      --card-border: rgba(13, 37, 69, 0.08);
+      --shadow: 0 12px 40px rgba(13, 37, 69, 0.06), 0 4px 12px rgba(13, 37, 69, 0.04);
+      --glow-1: rgba(232, 96, 26, 0.08);
+      --glow-2: rgba(22, 51, 96, 0.05);
+      --pill-bg: rgba(13, 37, 69, 0.05);
+      --input-bg: rgba(255, 255, 255, 0.9);
+      --logo-bg: rgba(255, 255, 255, 0.9);
+      --nocastra-bg: rgba(255, 255, 255, 0.9);
+    }
+
+    html[toggle-theme="dark"] {
+      --bg: #0a0e14;
+      --text-main: #e8edf4;
+      --text-muted: #aeb9c9;
+      --card-bg: rgba(18, 26, 38, 0.65);
+      --card-border: rgba(255, 255, 255, 0.06);
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      --glow-1: rgba(232, 96, 26, 0.15);
+      --glow-2: rgba(22, 51, 96, 0.35);
+      --pill-bg: rgba(255, 255, 255, 0.06);
+      --input-bg: rgba(18, 26, 38, 0.8);
+      --logo-bg: rgba(18, 26, 38, 0.8);
+      --nocastra-bg: rgba(255, 255, 255, 0.95);
+      /* Keep logo backgrounds legible */
+    }
+
+    /* --- BASE RESET & FONTS --- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      min-height: 100vh;
+    }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      transition: background-color 0.4s ease, color 0.4s ease;
+      padding: 90px 24px 100px 24px;
+    }
+
+    body.arabic {
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      direction: rtl;
+    }
+
+    /* --- BACKGROUND BLOBS & ANIMATION --- */
+    .bg-glows {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      mix-blend-mode: normal;
+      transition: background-color 0.4s ease;
+    }
+
+    .glow-1 {
+      top: -10%;
+      left: -10%;
+      width: 50vw;
+      height: 50vw;
+      background-color: var(--glow-1);
+      animation: floatBlob1 25s infinite alternate ease-in-out;
+    }
+
+    .glow-2 {
+      bottom: -10%;
+      right: -10%;
+      width: 60vw;
+      height: 60vw;
+      background-color: var(--glow-2);
+      animation: floatBlob2 30s infinite alternate ease-in-out;
+    }
+
+    @keyframes floatBlob1 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(10vw, 15vh) scale(1.15);
+      }
+    }
+
+    @keyframes floatBlob2 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(-8vw, -12vh) scale(1.1);
+      }
+    }
+
+    /* --- TOP HEADER & ACTIONS --- */
+    header {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      width: 100%;
+      max-width: 1280px;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 48px;
+      width: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-container:hover .logo-img {
+      transform: scale(1.03);
+    }
+
+    .actions-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Theme Toggle button matching the global site style */
+    .theme-toggle {
+      background: var(--pill-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: var(--orange);
+      color: var(--white);
+      border-color: var(--orange);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(232, 96, 26, 0.3);
+    }
+
+    .theme-toggle svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+    }
+
+    html[toggle-theme="light"] .icon-sun {
+      display: none;
+    }
+
+    html[toggle-theme="dark"] .icon-moon {
+      display: none;
+    }
+
+    /* Language Switcher */
+    .lang-switcher {
+      display: flex;
+      background: var(--pill-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 30px;
+      padding: 4px;
+    }
+
+    .lang-btn {
+      padding: 6px 16px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+
+    .lang-btn.active {
+      background: var(--orange);
+      color: var(--white);
+      box-shadow: 0 4px 10px rgba(232, 96, 26, 0.2);
+    }
+
+    .lang-btn:not(.active):hover {
+      color: var(--text-main);
+    }
+
+    /* --- MAIN CONTENT WRAPPER --- */
+    main {
+      position: relative;
+      z-index: 10;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 44px 56px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 820px;
+      transition: var(--transition);
+      animation: cardFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes cardFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Badge: Aramco Registered */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--pill-bg);
+      border: 1px solid var(--card-border);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      animation: badgePulse 3s infinite ease-in-out;
+    }
+
+    body.arabic .badge {
+      letter-spacing: 0;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #10B981;
+      /* Emerald/Green */
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10B981;
+    }
+
+    @keyframes badgePulse {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+
+    /* Typography */
+    /* Progress Bar (Heading) */
+    .progress-bar-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 32px auto;
+      width: 100%;
+      --bar-width: 440px;
+    }
+
+    @media (max-width: 520px) {
+      .progress-bar-wrap {
+        --bar-width: calc(100vw - 88px);
+      }
+    }
+
+    .progress-bar-inner {
+      position: relative;
+      width: var(--bar-width);
+      height: 58px;
+      border: 3.5px solid var(--text-main);
+      border-radius: 50px;
+      overflow: hidden;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    }
+
+    .progress-text-base {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: var(--text-main);
+      z-index: 2;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+
+    body.arabic .progress-text-base {
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    .progress-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-color: var(--text-main);
+      z-index: 3;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      animation: fillProgress 10s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    body.arabic .progress-fill {
+      left: auto;
+      right: 0;
+    }
+
+    .progress-text-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: var(--bar-width);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    body.arabic .progress-text-fill {
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0;
+      left: auto;
+      right: 0;
+    }
+
+    @keyframes fillProgress {
+      from {
+        width: 0%;
+      }
+
+      to {
+        width: 62%;
+      }
+    }
+
+    .description {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 32px auto;
+      line-height: 1.6;
+    }
+
+    body.arabic .description {
+      font-size: 16px;
+    }
+
+    /* --- COUNTDOWN TIMER --- */
+    .countdown-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 580px;
+      margin: 0 auto 36px auto;
+    }
+
+    .countdown-item {
+      background: var(--pill-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 16px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .countdown-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent, rgba(232, 96, 26, 0.05));
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .countdown-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(232, 96, 26, 0.2);
+    }
+
+    .countdown-item:hover::before {
+      opacity: 1;
+    }
+
+    .time-val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 42px;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    body.arabic .time-val {
+      font-family: 'Barlow Condensed', 'Noto Kufi Arabic', sans-serif;
+    }
+
+    .time-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    body.arabic .time-label {
+      font-size: 11px;
+      letter-spacing: 0;
+    }
+
+    /* --- EMAIL NOTIFY FORM --- */
+    .form-container {
+      max-width: 500px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .notify-form {
+      display: flex;
+      background: var(--input-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 50px;
+      padding: 6px;
+      box-shadow: 0 4px 20px rgba(13, 37, 69, 0.02);
+      transition: var(--transition);
+    }
+
+    body.arabic .notify-form {
+      flex-direction: row;
+      /* maintains linear flow in RTL too */
+    }
+
+    .notify-form:focus-within {
+      border-color: var(--orange);
+      box-shadow: 0 4px 24px rgba(232, 96, 26, 0.15);
+    }
+
+    .email-input {
+      flex-grow: 1;
+      border: none;
+      background: transparent;
+      padding: 12px 24px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    body.arabic .email-input {
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      font-size: 14px;
+    }
+
+    .email-input::placeholder {
+      color: var(--gray-400);
+    }
+
+    .submit-btn {
+      background: var(--orange);
+      color: var(--white);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    body.arabic .submit-btn {
+      font-family: 'Noto Kufi Arabic', sans-serif;
+      font-size: 13px;
+    }
+
+    .submit-btn:hover {
+      background: var(--orange-light);
+      transform: scale(1.02);
+      box-shadow: 0 4px 15px rgba(232, 96, 26, 0.4);
+    }
+
+    .submit-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      transition: transform 0.3s ease;
+    }
+
+    .submit-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    body.arabic .submit-btn:hover svg {
+      transform: translateX(-4px);
+    }
+
+    /* Response/Status message */
+    .form-status {
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      min-height: 20px;
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+
+    .form-status.success {
+      color: #10B981;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .form-status.error {
+      color: #EF4444;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* --- FOOTER / NOCASTRA BRANDING --- */
+    footer {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      width: 100%;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .nocastra-link {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nocastra-link:hover {
+      color: var(--text-main);
+    }
+
+    .nocastra-badge {
+      background-color: var(--nocastra-bg);
+      border: 1px solid var(--card-border);
+      padding: 8px 20px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .nocastra-link:hover .nocastra-badge {
+      transform: translateY(-4px) scale(1.03);
+      border-color: var(--orange-light);
+      box-shadow: 0 8px 24px rgba(232, 96, 26, 0.15);
+    }
+
+    .nocastra-badge img {
+      height: 26px;
+      width: auto;
+      display: block;
+    }
+
+    /* --- RESPONSIVE DESIGN --- */
+    @media (max-height: 760px),
+    (max-width: 768px) {
+      body {
+        justify-content: flex-start;
+        padding: 20px;
+      }
+
+      header {
+        position: relative;
+        left: 0;
+        transform: none;
+        padding: 10px 0 20px 0;
+      }
+
+      main {
+        padding: 10px 0;
+      }
+
+      footer {
+        position: relative;
+        left: 0;
+        transform: none;
+        padding: 20px 0 10px 0;
+      }
+
+      .logo-img {
+        height: 38px;
+      }
+
+      .glass-card {
+        padding: 32px 20px;
+      }
+
+      .progress-text-base,
+      .progress-text-fill {
+        font-size: 20px;
+      }
+
+      body.arabic .progress-text-base,
+      body.arabic .progress-text-fill {
+        font-size: 15px;
+      }
+
+      .description {
+        font-size: 15px;
+      }
+
+      .countdown-container {
+        gap: 12px;
+      }
+
+      .time-val {
+        font-size: 32px;
+      }
+
+      .time-label {
+        font-size: 10px;
+      }
+
+      .notify-form {
+        flex-direction: column;
+        border-radius: var(--radius);
+        background: transparent;
+        border: none;
+        gap: 12px;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      .email-input {
+        background: var(--input-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 30px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .submit-btn {
+        width: 100%;
+        justify-content: center;
+        border-radius: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND ANIMATION GLOWS -->
+  <div class="bg-glows" aria-hidden="true">
+    <div class="glow-blob glow-1"></div>
+    <div class="glow-blob glow-2"></div>
+  </div>
+
+  <!-- TOP HEADER -->
+  <header>
+    <a href="#" class="logo-container" aria-label="NexGen Home">
+      <img src="logo.png" alt="NexGen Build logo" class="logo-img">
+    </a>
+    <div class="actions-bar">
+      <!-- Theme Switcher -->
+      <button type="button" class="theme-toggle" id="theme-btn" aria-label="Toggle Theme" title="Toggle Theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+
+      <!-- Language Toggle -->
+      <div class="lang-switcher">
+        <button type="button" class="lang-btn active" id="btn-en">EN</button>
+        <button type="button" class="lang-btn" id="btn-ar">AR</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CARD SECTION -->
+  <main>
+    <div class="glass-card">
+
+      <!-- Aramco Badge -->
+      <div class="badge">
+        <div class="badge-dot"></div>
+        <span data-en="Saudi Aramco Registered Supplier" data-ar="مورد معتمد لأرامكو السعودية">Saudi Aramco Registered
+          Supplier</span>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="progress-bar-wrap">
+        <div class="progress-bar-inner">
+          <div class="progress-text-base">
+            <span data-en="COMING SOON" data-ar="قريباً جداً">COMING SOON</span>
+          </div>
+          <div class="progress-fill">
+            <div class="progress-text-fill">
+              <span data-en="COMING SOON" data-ar="قريباً جداً">COMING SOON</span>
+            </div>
+          </div>
+        </div>
+      </h1>
+
+      <!-- Description -->
+      <p class="description"
+        data-en="Our website is currently under engineering. NexGen Build Company provides premium general construction, electrical, HVAC, plumbing, and structural waterproofing solutions. We will be launching soon."
+        data-ar="موقعنا الإلكتروني قيد التطوير الهندسي حالياً. تقدم شركة نكس جين للمقاولات حلولاً متميزة للبناء العام والكهرباء والتكييف والسباكة والعزل الإنشائي. سنكون جاهزين للإطلاق قريباً.">
+        Our website is currently under engineering. NexGen Build Company provides premium general construction,
+        electrical, HVAC, plumbing, and structural waterproofing solutions. We will be launch-ready soon.
+      </p>
+
+      <!-- COUNTDOWN TIMER -->
+      <div class="countdown-container" id="countdown">
+        <div class="countdown-item">
+          <span class="time-val" id="days">00</span>
+          <span class="time-label" data-en="Days" data-ar="أيام">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="time-val" id="hours">00</span>
+          <span class="time-label" data-en="Hours" data-ar="ساعات">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="time-val" id="minutes">00</span>
+          <span class="time-label" data-en="Minutes" data-ar="دقائق">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="time-val" id="seconds">00</span>
+          <span class="time-label" data-en="Seconds" data-ar="ثواني">Seconds</span>
+        </div>
+      </div>
+
+      <!-- NOTIFY FORM -->
+      <!-- 
+        NOTE TO DEVELOPER: To hook this email form up to receive actual email alerts, you can change the action attribute:
+        1. Formspree: action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
+        2. Web3Forms: action="https://api.web3forms.com/submit" method="POST"
+        3. Standard mailto: action="mailto:your-email@domain.com" method="POST" enctype="text/plain"
+      -->
+      <div class="form-container">
+        <form class="notify-form" id="notify-form">
+          <input type="email" class="email-input" id="email-field" name="email" placeholder="Enter your email address"
+            required>
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <span data-en="Notify Me" data-ar="أبلغني عند الإطلاق">Notify Me</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+        <div class="form-status" id="form-status"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="https://nocastra.com" target="_blank" rel="noopener" class="nocastra-link">
+      <span data-en="Developed by" data-ar="تطوير بواسطة">Developed by</span>
+      <div class="nocastra-badge">
+        <img src="nocastraLogo.png" alt="Nocastra Logo">
+      </div>
+    </a>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // --- LANGUAGE STATE & LOGIC ---
+    var currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.body.classList.toggle('arabic', lang === 'ar');
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+      // Update text nodes with translation attributes
+      document.querySelectorAll('[data-en]').forEach(function (el) {
+        var text = el.getAttribute('data-' + lang);
+        if (!text) return;
+        el.textContent = text;
+      });
+
+      // Update placeholders
+      var emailField = document.getElementById('email-field');
+      if (emailField) {
+        emailField.placeholder = lang === 'ar' ? 'أدخل عنوان بريدك الإلكتروني' : 'Enter your email address';
+      }
+
+      // Update active toggle button style
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+
+      // Save preference
+      try {
+        localStorage.setItem('nx-lang', lang);
+      } catch (e) { }
+    }
+
+    // --- THEME STATE & LOGIC ---
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('toggle-theme', theme);
+      document.body.setAttribute('toggle-theme', theme);
+      try {
+        localStorage.setItem('theme', theme);
+      } catch (e) { }
+    }
+
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('toggle-theme') || 'dark';
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    }
+
+    // --- COUNTDOWN TIMER ---
+    // Count down to exactly 20 days from the current date (dynamically calculated for the visitor)
+    var targetDate;
+    try {
+      var savedTarget = localStorage.getItem('nx-target-date');
+      if (savedTarget) {
+        targetDate = parseInt(savedTarget, 10);
+      }
+    } catch (e) { }
+
+    var twentyDays = 20 * 24 * 60 * 60 * 1000;
+    if (!targetDate || isNaN(targetDate) || targetDate < new Date().getTime() || (targetDate - new Date().getTime() > twentyDays)) {
+      targetDate = new Date().getTime() + twentyDays;
+      try {
+        localStorage.setItem('nx-target-date', targetDate);
+      } catch (e) { }
+    }
+
+    function updateCountdown() {
+      var now = new Date().getTime();
+      var distance = targetDate - now;
+
+      // If countdown has passed, reset back to 20 days to keep it active
+      if (distance < 0) {
+        targetDate = now + twentyDays;
+        try {
+          localStorage.setItem('nx-target-date', targetDate);
+        } catch (e) { }
+        distance = twentyDays;
+      }
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Pad with single zero
+      document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+      document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+      document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+      document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+    }
+
+    // --- SUBMISSION HANDLER ---
+    var notifyForm = document.getElementById('notify-form');
+    var formStatus = document.getElementById('form-status');
+
+    notifyForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var emailField = document.getElementById('email-field');
+      var emailVal = emailField.value.trim();
+
+      if (!emailVal) return;
+
+      // Basic styling validation feedback
+      formStatus.classList.remove('success', 'error');
+
+      // Simulating database signup success
+      setTimeout(function () {
+        formStatus.textContent = currentLang === 'ar'
+          ? 'تم التسجيل بنجاح! سنقوم بإعلامك فور الإطلاق.'
+          : 'Thank you! We will keep you updated on our launch.';
+        formStatus.classList.add('success');
+        emailField.value = '';
+
+        // Clear message after 5 seconds
+        setTimeout(function () {
+          formStatus.classList.remove('success');
+          formStatus.textContent = '';
+        }, 5000);
+      }, 600);
+    });
+
+    // --- INITIALIZATION ---
+    document.addEventListener('DOMContentLoaded', function () {
+      // 1. Init Theme
+      var savedTheme = 'light';
+      try {
+        savedTheme = localStorage.getItem('theme') || 'light';
+      } catch (e) { }
+      applyTheme(savedTheme);
+
+      document.getElementById('theme-btn').addEventListener('click', toggleTheme);
+
+      // 2. Init Language
+      var savedLang = 'en';
+      try {
+        savedLang = localStorage.getItem('nx-lang') || localStorage.getItem('lang') || 'en';
+      } catch (e) { }
+      setLang(savedLang);
+
+      document.getElementById('btn-en').addEventListener('click', function () { setLang('en'); });
+      document.getElementById('btn-ar').addEventListener('click', function () { setLang('ar'); });
+
+      // 3. Init Countdown
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
+</body>
+
+</html>

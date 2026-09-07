@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 48" role="img" aria-label="Saudi Vision 2030">
+  <defs>
+    <linearGradient id="v2030g" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a5f4a"/>
+      <stop offset="100%" style="stop-color:#2d8a6e"/>
+    </linearGradient>
+  </defs>
+  <rect width="140" height="48" rx="8" fill="url(#v2030g)"/>
+  <text x="70" y="21" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="9" font-weight="600" letter-spacing="0.08em">SAUDI ARABIA</text>
+  <text x="70" y="36" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="13" font-weight="800">Vision 2030</text>
+</svg>

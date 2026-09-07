@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" role="img" aria-label="ISO 9001">
+  <rect width="120" height="48" rx="8" fill="#f3f4f6" stroke="#d1d5db"/>
+  <text x="60" y="21" text-anchor="middle" fill="#374151" font-family="system-ui,sans-serif" font-size="10" font-weight="700">ISO 9001</text>
+  <text x="60" y="35" text-anchor="middle" fill="#6b7280" font-family="system-ui,sans-serif" font-size="8">Quality Management</text>
+</svg>

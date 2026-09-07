@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Fiber laser">
+  <rect width="48" height="48" rx="12" fill="#E8601A"/>
+  <path d="M10 24h28M24 10v28" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="24" cy="24" r="5" fill="#fff"/>
+</svg>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Services — NexGen Build Company</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" href="./favicon.png">
+<link rel="apple-touch-icon" href="./favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Barlow+Condensed:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<script>
+try {
+  var __t = localStorage.getItem('theme');
+  if (__t === 'light' || __t === 'dark') {
+    document.documentElement.setAttribute('toggle-theme', __t);
+    document.body.setAttribute('toggle-theme', __t);
+  }
+} catch (e) {}
+</script>
+<!-- Shared nav — keep in sync across pages -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="logo.png" alt="NexGen Build logo" height="44" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+      <li><a href="about.html" data-en="About Us" data-ar="عن الشركة">About Us</a></li>
+      <li><a href="services.html" class="active" data-en="Services" data-ar="الخدمات">Services</a></li>
+      <li><a href="workshop.html" data-en="Workshop" data-ar="الورشة">Workshop</a></li>
+      <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button type="button" class="theme-toggle" id="btn-theme" aria-pressed="false" aria-label="Toggle color theme" title="Theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>
+      </button>
+      <div class="lang-toggle">
+        <button type="button" class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button type="button" class="lang-btn" id="btn-ar" onclick="setLang('ar')">AR</button>
+      </div>
+      <a class="btn-quote" href="contact.html" data-en="Get a Quote" data-ar="طلب عرض سعر">Get a Quote</a>
+      <div class="hamburger" onclick="toggleMobile()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <a href="about.html" data-en="About Us" data-ar="عن الشركة">About Us</a>
+  <a href="services.html" data-en="Services" data-ar="الخدمات">Services</a>
+  <a href="workshop.html" data-en="Workshop" data-ar="الورشة">Workshop</a>
+  <a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+  <div class="mobile-lang">
+    <button type="button" class="lang-btn active" id="m-btn-en" onclick="setLang('en')">EN</button>
+    <button type="button" class="lang-btn" id="m-btn-ar" onclick="setLang('ar')">AR</button>
+  </div>
+  <div class="mobile-theme">
+    <span data-en="Theme" data-ar="المظهر">Theme</span>
+    <button type="button" class="theme-toggle" id="m-btn-theme" aria-pressed="false" aria-label="Toggle color theme" title="Theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</div>
+
+
+  <section class="services-hero">
+    <div class="services-hero-bg"></div>
+    <div class="hero-infinite-grid" aria-hidden="true"></div>
+    <div class="container services-hero-content">
+      <div class="page-breadcrumb">
+        <a href="index.html" style="cursor:pointer;text-decoration:none;color:inherit;" data-en="Home" data-ar="الرئيسية">Home</a> &nbsp;/&nbsp;
+        <span data-en="Services" data-ar="الخدمات">Services</span>
+      </div>
+      <h1 data-en="Our Construction <span>Services</span>" data-ar="خدماتنا <span>الإنشائية</span>">Our Construction <span>Services</span></h1>
+      <p data-en="Six specialized divisions providing integrated solutions from foundation to finish. Residential, commercial, and industrial." data-ar="ستة أقسام متخصصة تقدم حلولاً متكاملة من الأساس إلى التشطيب. سكني وتجاري وصناعي.">Six specialized divisions providing integrated solutions from foundation to finish. Residential, commercial, and industrial.</p>
+    </div>
+  </section>
+
+  <section class="process-section" aria-labelledby="process-heading">
+    <div class="container">
+      <div class="process-section-header">
+        <div class="section-label process-section-eyebrow" data-en="How We Work" data-ar="كيف نعمل">How We Work</div>
+        <h2 id="process-heading" class="section-title process-section-title" data-en="Our <span>Process</span>" data-ar="<span>منهجيتنا</span>">Our <span>Process</span></h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-num" aria-hidden="true">01</div>
+          <div class="step-title" data-en="Consultation" data-ar="الاستشارة">Consultation</div>
+          <p class="step-desc" data-en="Understand project scope, requirements &amp; timeline" data-ar="فهم نطاق المشروع والمتطلبات والجدول الزمني">Understand project scope, requirements &amp; timeline</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num" aria-hidden="true">02</div>
+          <div class="step-title" data-en="Design" data-ar="التصميم">Design</div>
+          <p class="step-desc" data-en="Engineering drawings, system design &amp; job bidding" data-ar="رسومات هندسية وتصميم النظام وتسعير العمل">Engineering drawings, system design &amp; job bidding</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num" aria-hidden="true">03</div>
+          <div class="step-title" data-en="Approval" data-ar="الاعتماد">Approval</div>
+          <p class="step-desc" data-en="Client sign-off, permitting &amp; procurement" data-ar="موافقة العميل والتصاريح والمشتريات">Client sign-off, permitting &amp; procurement</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="step-num" aria-hidden="true">04</div>
+          <div class="step-title" data-en="Execution" data-ar="التنفيذ">Execution</div>
+          <p class="step-desc" data-en="Skilled teams deliver with precision &amp; safety compliance" data-ar="فرق ماهرة تنفذ بدقة وامتثال للسلامة">Skilled teams deliver with precision &amp; safety compliance</p>
+        </div>
+        <div class="process-step reveal reveal-delay-4">
+          <div class="step-num" aria-hidden="true">05</div>
+          <div class="step-title" data-en="Handover" data-ar="التسليم">Handover</div>
+          <p class="step-desc" data-en="Testing, commissioning &amp; full warranty support" data-ar="الاختبار والتشغيل والضمان الشامل">Testing, commissioning &amp; full warranty support</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="services-tabs">
+    <div class="tabs-inner">
+      <button class="tab-btn active" onclick="showTab('general')" id="tab-general" data-en="General Construction" data-ar="البناء العام">General Construction</button>
+      <button class="tab-btn" onclick="showTab('electrical')" id="tab-electrical" data-en="Electrical" data-ar="كهرباء">Electrical</button>
+      <button class="tab-btn" onclick="showTab('sanitary')" id="tab-sanitary" data-en="Sanitary" data-ar="صحي">Sanitary</button>
+      <button class="tab-btn" onclick="showTab('hvac')" id="tab-hvac" data-en="HVAC" data-ar="تكييف وتهوية">HVAC</button>
+      <button class="tab-btn" onclick="showTab('waterproofing')" id="tab-waterproofing" data-en="Waterproofing" data-ar="عزل مائي">Waterproofing</button>
+      <button class="tab-btn" onclick="showTab('fire')" id="tab-fire" data-en="Fire Fighting" data-ar="إطفاء حريق">Fire Fighting</button>
+    </div>
+  </div>
+
+  <!-- GENERAL CONSTRUCTION -->
+  <div class="service-detail active" id="detail-general">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div class="service-detail-content">
+          <div class="section-label" data-en="Civil Works Division" data-ar="قسم الأعمال المدنية">Civil Works Division</div>
+          <h2 class="section-title" data-en="General <span>Construction</span>" data-ar="<span>البناء</span> العام">General <span>Construction</span></h2>
+          <p data-en="Our Civil Works division provides comprehensive construction services covering every phase from initial site preparation through to final site development. We handle commercial, residential, and industrial projects with the same level of precision and commitment." data-ar="يقدم قسم الأعمال المدنية لدينا خدمات بناء شاملة تغطي كل مرحلة من الإعداد الأولي للموقع حتى التطوير النهائي للموقع.">Our Civil Works division provides comprehensive construction services covering every phase from initial site preparation through to final site development. We handle commercial, residential, and industrial projects with the same level of precision and commitment.</p>
+          <div class="service-items">
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="1" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Site Preparation & Excavation" data-ar="تحضير الموقع والحفر">Site Preparation & Excavation</h4><p data-en="Professional land clearing, grading, and earthwork." data-ar="تسوية الأراضي والحفر والأعمال الترابية.">Professional land clearing, grading, and earthwork.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="2" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Foundation Construction" data-ar="إنشاء الأساسات">Foundation Construction</h4><p data-en="Robust concrete foundation with full reinforcement." data-ar="أساسات خرسانية متينة مع تسليح كامل.">Robust concrete foundation with reinforcement.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="3" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Structural Framing" data-ar="الهيكل الإنشائي">Structural Framing</h4><p data-en="Steel and concrete structural works." data-ar="أعمال هيكلية من الصلب والخرسانة.">Steel and concrete structural works.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="4" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Masonry & Blockwork" data-ar="أعمال البناء والطوب">Masonry & Blockwork</h4><p data-en="Expert brick laying and construction." data-ar="وضع الطوب والبناء بخبرة.">Expert brick laying and construction.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="5" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Road & Paving" data-ar="الطرق والرصف">Road & Paving</h4><p data-en="Quality asphalt and concrete paving services." data-ar="خدمات رصف الأسفلت والخرسانة عالية الجودة.">Quality asphalt and concrete paving services.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="6" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Site Development" data-ar="تطوير الموقع">Site Development</h4><p data-en="Complete landscaping and finishing." data-ar="تنسيق المواقع والتشطيبات الكاملة.">Complete landscaping and finishing.</p></div></div>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div class="service-photo">
+            <img src="Picture2.jpg" alt="General Construction service image">
+          </div>
+          <div class="visual-header"><div class="visual-icon">🏗️</div><h3 data-en="Key Capabilities" data-ar="الكفاءات الرئيسية">Key Capabilities</h3></div>
+          <div class="visual-tags">
+            <span class="visual-tag" data-en="Residential" data-ar="سكني">Residential</span>
+            <span class="visual-tag" data-en="Commercial" data-ar="تجاري">Commercial</span>
+            <span class="visual-tag" data-en="Industrial" data-ar="صناعي">Industrial</span>
+            <span class="visual-tag" data-en="Foundation" data-ar="أساسات">Foundation</span>
+            <span class="visual-tag" data-en="Structural Steel" data-ar="هيكل صلب">Structural Steel</span>
+            <span class="visual-tag" data-en="Earthworks" data-ar="أعمال ترابية">Earthworks</span>
+            <span class="visual-tag" data-en="Paving" data-ar="رصف">Paving</span>
+          </div>
+          <div class="visual-note"><strong data-en="Full-Cycle Delivery:" data-ar="تسليم متكامل:">Full-Cycle Delivery:</strong> <span data-en="From the first site survey to handover of keys — NexGen manages every phase in-house for total quality control." data-ar="من أول مسح للموقع حتى تسليم المفاتيح — نكست جن تدير كل مرحلة داخلياً لضبط الجودة الكامل.">From the first site survey to handover of keys — NexGen manages every phase in-house for total quality control.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ELECTRICAL -->
+  <div class="service-detail" id="detail-electrical">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div class="service-detail-content">
+          <div class="section-label" data-en="Electrical Division" data-ar="القسم الكهربائي">Electrical Division</div>
+          <h2 class="section-title" data-en="Electrical <span>Services</span>" data-ar="<span>الخدمات</span> الكهربائية">Electrical <span>Services</span></h2>
+          <p data-en="Complete electrical installation services for all types of facilities. Our certified electricians handle everything from initial system design to final testing and compliance certification." data-ar="خدمات تركيب كهربائية متكاملة لجميع أنواع المنشآت. يتولى كهربائيونا المعتمدون كل شيء من التصميم الأولي للنظام إلى الاختبار النهائي وشهادة الامتثال.">Complete electrical installation services for all types of facilities. Our certified electricians handle everything from initial system design to final testing and compliance certification.</p>
+          <div class="service-items">
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="1" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Electrical System Design" data-ar="تصميم الأنظمة الكهربائية">Electrical System Design</h4><p data-en="Comprehensive planning and layout design." data-ar="تخطيط شامل وتصميم تخطيطي.">Comprehensive planning and layout design.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="2" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Power Distribution" data-ar="توزيع الطاقة">Power Distribution</h4><p data-en="Main panels, sub-panels, and circuit breakers installation." data-ar="تركيب اللوحات الرئيسية والفرعية وقواطع الدوائر الكهربائية.">Main panels, sub-panels, and circuit breakers installation.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="3" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Lighting Systems" data-ar="أنظمة الإضاءة">Lighting Systems</h4><p data-en="Interior, exterior, emergency, and decorative lighting." data-ar="إضاءة داخلية وخارجية وطوارئ وديكورية.">Interior, exterior, emergency, and decorative lighting.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="4" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Backup Power Solutions" data-ar="حلول الطاقة الاحتياطية">Backup Power Solutions</h4><p data-en="Generator and UPS system installation." data-ar="تركيب أنظمة المولدات وUPS.">Generator and UPS system installation.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="5" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Cable Management" data-ar="إدارة الكابلات">Cable Management</h4><p data-en="Professional routing and containment systems." data-ar="أنظمة توجيه واحتواء احترافية.">Professional routing and containment systems.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="6" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Testing & Certification" data-ar="الاختبار والتصديق">Testing & Certification</h4><p data-en="Safety inspections and compliance certification." data-ar="فحوصات السلامة وشهادة الامتثال.">Safety inspections and compliance certification.</p></div></div>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div class="service-photo">
+            <img src="Picture3.jpg" alt="Electrical Services image">
+          </div>
+          <div class="visual-header"><div class="visual-icon">⚡</div><h3 data-en="Electrical Expertise" data-ar="الخبرة الكهربائية">Electrical Expertise</h3></div>
+          <div class="visual-tags">
+            <span class="visual-tag">LV/MV Systems</span>
+            <span class="visual-tag">Switchgear</span>
+            <span class="visual-tag">UPS/Generator</span>
+            <span class="visual-tag">LED Lighting</span>
+            <span class="visual-tag">CCTV Integration</span>
+            <span class="visual-tag">BMS Ready</span>
+          </div>
+          <div class="visual-note"><strong data-en="All Facilities:" data-ar="جميع المنشآت:">All Facilities:</strong> <span data-en="Residential complexes, commercial towers, industrial plants — our electrical team handles all facility types and scales." data-ar="المجمعات السكنية والأبراج التجارية والمنشآت الصناعية — يتعامل فريقنا الكهربائي مع جميع أنواع وأحجام المنشآت.">Residential complexes, commercial towers, industrial plants — our electrical team handles all scales.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SANITARY -->
+  <div class="service-detail" id="detail-sanitary">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div class="service-detail-content">
+          <div class="section-label" data-en="Plumbing Division" data-ar="قسم السباكة">Plumbing Division</div>
+          <h2 class="section-title" data-en="Sanitary <span>Services</span>" data-ar="<span>الخدمات</span> الصحية">Sanitary <span>Services</span></h2>
+          <p data-en="Professional plumbing services for residential and commercial projects. Complete pipe network installation, drainage systems, fixture installation, and maintenance." data-ar="خدمات سباكة احترافية للمشاريع السكنية والتجارية. تركيب شبكات أنابيب كاملة وأنظمة صرف وتركيب تجهيزات وصيانة.">Professional plumbing services for residential and commercial projects. Complete pipe network installation, drainage systems, fixture installation, and maintenance.</p>
+          <div class="service-items">
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="1" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Water Supply Systems" data-ar="أنظمة إمداد المياه">Water Supply Systems</h4><p data-en="Complete pipe network for reliable cold and hot water delivery." data-ar="شبكة أنابيب كاملة لتوصيل موثوق للمياه الباردة والساخنة.">Complete pipe network for reliable cold and hot water delivery.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="2" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Drainage & Sewage" data-ar="الصرف والمجاري">Drainage & Sewage</h4><p data-en="Efficient wastewater management with graded drains and venting to prevent backflow." data-ar="إدارة فعالة للمياه العادمة مع مصارف منحدرة وتهوية لمنع التدفق العكسي.">Efficient wastewater management with proper grading and venting.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="3" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Sanitary Fixtures" data-ar="الأجهزة الصحية">Sanitary Fixtures</h4><p data-en="Installation of toilets, sinks, faucets, and fittings with water-tight seals." data-ar="تركيب المراحيض والأحواض والصنابير والتجهيزات بأختام محكمة.">Toilets, sinks, faucets, and fittings — water-tight seals.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="4" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Hot Water Systems" data-ar="أنظمة المياه الساخنة">Hot Water Systems</h4><p data-en="Water heaters, solar water heating, tank and tankless systems." data-ar="سخانات المياه والتسخين الشمسي وأنظمة الخزانات وبدونها.">Water heaters, solar systems, tank and tankless options.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="5" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Rainwater Harvesting" data-ar="تجميع مياه الأمطار">Rainwater Harvesting</h4><p data-en="Eco-friendly collection and storage systems with filtration and overflow protections." data-ar="أنظمة جمع وتخزين صديقة للبيئة مع الترشيح وحماية الفيضان.">Eco-friendly collection with filtration and overflow protections.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="6" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Maintenance & Repair" data-ar="الصيانة والإصلاح">Maintenance & Repair</h4><p data-en="Leak detection, pump installation, and servicing." data-ar="اكتشاف التسربات وتركيب المضخبات والخدمة.">Leak detection, pump installation, and servicing.</p></div></div>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div class="service-photo">
+            <img src="Picture23.jpg" alt="Sanitary Services image">
+          </div>
+          <div class="visual-header"><div class="visual-icon">🔧</div><h3 data-en="Plumbing Scope" data-ar="نطاق السباكة">Plumbing Scope</h3></div>
+          <div class="visual-tags">
+            <span class="visual-tag" data-en="Cold & Hot Water" data-ar="ماء بارد وساخن">Cold & Hot Water</span>
+            <span class="visual-tag" data-en="Drainage" data-ar="صرف">Drainage</span>
+            <span class="visual-tag" data-en="Solar Heating" data-ar="تسخين شمسي">Solar Heating</span>
+            <span class="visual-tag" data-en="Eco Harvesting" data-ar="تجميع صديق للبيئة">Eco Harvesting</span>
+            <span class="visual-tag" data-en="24/7 Repair" data-ar="إصلاح 24/7">24/7 Repair</span>
+          </div>
+          <div class="visual-note"><strong data-en="Comprehensive Coverage:" data-ar="تغطية شاملة:">Comprehensive Coverage:</strong> <span data-en="From cold water mains to final fixtures — we engineer and install complete plumbing systems built to last." data-ar="من خطوط المياه الرئيسية إلى الأجهزة النهائية — نهندس ونركب أنظمة سباكة كاملة مصممة للاستدامة.">From cold water mains to final fixtures — complete plumbing systems built to last.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HVAC -->
+  <div class="service-detail" id="detail-hvac">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div class="service-detail-content">
+          <div class="section-label" data-en="HVAC Division" data-ar="قسم التكييف والتهوية">HVAC Division</div>
+          <h2 class="section-title" data-en="HVAC <span>Services</span>" data-ar="خدمات <span>التكييف</span>">HVAC <span>Services</span></h2>
+          <p data-en="Advanced heating, ventilation and air conditioning solutions for all types of buildings. We design, supply, and install complete HVAC systems with energy efficiency as a priority." data-ar="حلول متقدمة للتدفئة والتهوية وتكييف الهواء لجميع أنواع المباني. نصمم ونوفر ونركب أنظمة HVAC كاملة مع إيلاء الأولوية لكفاءة الطاقة.">Advanced heating, ventilation and air conditioning solutions for all types of buildings. We design, supply, and install complete HVAC systems with energy efficiency as a priority.</p>
+          <div class="service-items">
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="1" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Air Conditioning Installation" data-ar="تركيب التكييف">Air Conditioning Installation</h4><p data-en="Central AC, split systems, and VRF technology." data-ar="تكييف مركزي وأنظمة مقسمة وتقنية VRF.">Central AC, split systems, and VRF technology.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="2" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Ventilation Systems" data-ar="أنظمة التهوية">Ventilation Systems</h4><p data-en="Fresh air intake and exhaust system design." data-ar="تصميم نظام سحب الهواء النقي والعادم.">Fresh air intake and exhaust system design.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="3" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Heating Solutions" data-ar="حلول التدفئة">Heating Solutions</h4><p data-en="Complete heating system installation and control." data-ar="تركيب نظام التدفئة الكامل والتحكم فيه.">Complete heating system installation and control.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="4" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Ductwork & Distribution" data-ar="قنوات الهواء والتوزيع">Ductwork & Distribution</h4><p data-en="Professional duct fabrication and installation." data-ar="تصنيع وتركيب قنوات هواء احترافية.">Professional duct fabrication and installation.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="5" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Energy Efficiency" data-ar="كفاءة الطاقة">Energy Efficiency</h4><p data-en="Sustainable HVAC designs reducing operational costs." data-ar="تصاميم HVAC مستدامة تقلل التكاليف التشغيلية.">Sustainable HVAC designs reducing operational costs.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="6" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Maintenance Contracts" data-ar="عقود الصيانة">Maintenance Contracts</h4><p data-en="Regular servicing and performance optimization." data-ar="خدمة منتظمة وتحسين الأداء.">Regular servicing and performance optimization.</p></div></div>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div class="service-photo">
+            <img src="Picture8.jpg" alt="HVAC Services image">
+          </div>
+          <div class="visual-header"><div class="visual-icon">❄️</div><h3 data-en="HVAC Systems" data-ar="أنظمة HVAC">HVAC Systems</h3></div>
+          <div class="visual-tags">
+            <span class="visual-tag">VRF/VRV</span>
+            <span class="visual-tag" data-en="Central AC" data-ar="تكييف مركزي">Central AC</span>
+            <span class="visual-tag" data-en="Split Units" data-ar="وحدات مقسمة">Split Units</span>
+            <span class="visual-tag" data-en="Chilled Water" data-ar="ماء مبرد">Chilled Water</span>
+            <span class="visual-tag" data-en="Air Handling" data-ar="معالجة الهواء">Air Handling</span>
+            <span class="visual-tag" data-en="BMS Controls" data-ar="أنظمة تحكم">BMS Controls</span>
+          </div>
+          <div class="visual-note"><strong data-en="Energy Smart:" data-ar="موفر للطاقة:">Energy Smart:</strong> <span data-en="NexGen designs HVAC systems to minimize energy consumption without compromising comfort — saving operational costs for the lifetime of the building." data-ar="تصمم نكست جن أنظمة HVAC لتقليل استهلاك الطاقة دون المساس بالراحة — مما يوفر التكاليف التشغيلية طوال عمر المبنى.">We design HVAC systems to minimize energy consumption without compromising comfort.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WATERPROOFING -->
+  <div class="service-detail" id="detail-waterproofing">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div class="service-detail-content">
+          <div class="section-label" data-en="Waterproofing Division" data-ar="قسم العزل المائي">Waterproofing Division</div>
+          <h2 class="section-title" data-en="Waterproofing <span>Services</span>" data-ar="خدمات <span>العزل المائي</span>">Waterproofing <span>Services</span></h2>
+          <p data-en="Specialized waterproofing solutions protecting your investment. We apply advanced materials and proven techniques to prevent water damage and ensure long-term structural integrity." data-ar="حلول عزل مائي متخصصة تحمي استثمارك. نطبق مواد متقدمة وتقنيات مجربة لمنع أضرار المياه وضمان سلامة هيكلية طويلة الأمد.">Specialized waterproofing solutions protecting your investment. Advanced materials and proven techniques to prevent water damage and ensure long-term structural integrity.</p>
+          <div class="service-items">
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="1" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Foundation Waterproofing" data-ar="عزل الأساسات">Foundation Waterproofing</h4><p data-en="Comprehensive basement and foundation protection." data-ar="حماية شاملة للأقبية والأساسات.">Comprehensive basement and foundation protection.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="2" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Roof Waterproofing" data-ar="عزل الأسطح">Roof Waterproofing</h4><p data-en="Membrane installation and liquid coating application." data-ar="تركيب الأغشية وتطبيق الطلاء السائل.">Membrane installation and liquid coating application.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="3" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Wet Area Sealing" data-ar="ختم المناطق الرطبة">Wet Area Sealing</h4><p data-en="Bathroom, kitchen, and wet area waterproofing." data-ar="عزل مائي للحمامات والمطابخ والمناطق الرطبة.">Bathroom, kitchen, and wet area waterproofing.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="4" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Tank & Reservoir Sealing" data-ar="ختم الخزانات">Tank & Reservoir Sealing</h4><p data-en="Water tank and pool waterproofing services." data-ar="خدمات عزل خزانات المياه والمسابح.">Water tank and pool waterproofing services.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="5" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Joint Treatment" data-ar="معالجة الفواصل">Joint Treatment</h4><p data-en="Expansion joint sealing and crack repair." data-ar="ختم فواصل التمدد وإصلاح الشقوق.">Expansion joint sealing and crack repair.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="6" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Protective Coatings" data-ar="الطلاءات الوقائية">Protective Coatings</h4><p data-en="Advanced coatings preventing water damage and deterioration." data-ar="طلاءات متقدمة تمنع أضرار المياه والتآكل.">Advanced coatings preventing water damage.</p></div></div>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div class="service-photo">
+            <img src="Picture4.jpg" alt="Waterproofing Services image">
+          </div>
+          <div class="visual-header"><div class="visual-icon">🛡️</div><h3 data-en="Waterproofing Systems" data-ar="أنظمة العزل المائي">Waterproofing Systems</h3></div>
+          <div class="visual-tags">
+            <span class="visual-tag" data-en="Torch-On Membrane" data-ar="غشاء لهبي">Torch-On Membrane</span>
+            <span class="visual-tag" data-en="Liquid Membrane" data-ar="غشاء سائل">Liquid Membrane</span>
+            <span class="visual-tag" data-en="Crystalline" data-ar="بلوري">Crystalline</span>
+            <span class="visual-tag" data-en="Injection Grouting" data-ar="حقن الشقوق">Injection Grouting</span>
+            <span class="visual-tag" data-en="EPDM Coating" data-ar="طلاء EPDM">EPDM Coating</span>
+          </div>
+          <div class="visual-note"><strong data-en="Long-Term Protection:" data-ar="حماية طويلة الأمد:">Long-Term Protection:</strong> <span data-en="Every waterproofing solution comes with warranty support. We use internationally proven materials suited to the Saudi climate." data-ar="كل حل عزل مائي يأتي مع دعم الضمان. نستخدم مواد مثبتة دولياً مناسبة للمناخ السعودي.">Every solution comes with warranty support. We use internationally proven materials suited to the Saudi climate.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIRE FIGHTING -->
+  <div class="service-detail" id="detail-fire">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div class="service-detail-content">
+          <div class="section-label" data-en="Fire Protection Division" data-ar="قسم الحماية من الحرائق">Fire Protection Division</div>
+          <h2 class="section-title" data-en="Fire Fighting <span>Systems</span>" data-ar="أنظمة <span>الإطفاء</span>">Fire Fighting <span>Systems</span></h2>
+          <p data-en="NexGen Build provides comprehensive fire fighting and fire protection solutions designed to safeguard lives, property, and assets. We specialize in the design, supply, installation, testing, and commissioning of advanced systems in compliance with international standards." data-ar="تقدم نكست جن بيلد حلولاً شاملة لمكافحة الحرائق والحماية منها، مصممة لحماية الأرواح والممتلكات والأصول. نتخصص في تصميم وتوريد وتركيب واختبار وتشغيل الأنظمة المتقدمة وفقاً للمعايير الدولية.">Comprehensive fire fighting and fire protection solutions designed to safeguard lives, property, and assets. Design, supply, installation, testing, and commissioning in compliance with international standards.</p>
+          <div class="service-items">
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="1" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="System Design & Engineering" data-ar="تصميم وهندسة النظام">System Design & Engineering</h4><p data-en="Complete fire fighting system design and engineering." data-ar="تصميم وهندسة كاملة لنظام مكافحة الحرائق.">Complete fire system design and engineering.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="2" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Fire Sprinkler Systems" data-ar="أنظمة الرشاشات">Fire Sprinkler Systems</h4><p data-en="Automatic sprinkler networks for all building types." data-ar="شبكات رشاشات أوتوماتيكية لجميع أنواع المباني.">Automatic sprinkler networks for all building types.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="3" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Fire Alarm Systems" data-ar="أنظمة إنذار الحريق">Fire Alarm Systems</h4><p data-en="Intelligent fire detection and alarm systems." data-ar="أنظمة ذكية للكشف عن الحرائق والإنذار.">Intelligent fire detection and alarm systems.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="4" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Hydrant & Hose Reel Systems" data-ar="أنظمة خراطيم الحريق">Hydrant & Hose Reel Systems</h4><p data-en="Fire hydrant and hose reel installation." data-ar="تركيب صنابير الحريق وبكرات الخراطيم.">Fire hydrant and hose reel installation.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="5" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="Fire Suppression Systems" data-ar="أنظمة إخماد الحريق">Fire Suppression Systems</h4><p data-en="Specialized suppression for high-risk areas." data-ar="إخماد متخصص للمناطق عالية الخطورة.">Specialized suppression for high-risk areas.</p></div></div>
+            <div class="service-item"><div class="service-item-dot"><span class="loader-counter" data-from="0" data-to="6" data-pad="2" data-mode="linear" data-duration="0.9">00</span></div><div class="service-item-text"><h4 data-en="AMC — Annual Maintenance" data-ar="عقود الصيانة السنوية">AMC — Annual Maintenance</h4><p data-en="Annual maintenance contracts, testing, and commissioning." data-ar="عقود صيانة سنوية واختبار وتشغيل.">Annual maintenance contracts, testing, and commissioning.</p></div></div>
+          </div>
+        </div>
+        <div class="service-visual">
+          <div class="service-photo">
+            <img src="Picture9.jpg" alt="Fire Fighting Systems image">
+          </div>
+          <div class="visual-header"><div class="visual-icon">🔥</div><h3 data-en="Fire Protection Scope" data-ar="نطاق الحماية من الحرائق">Fire Protection Scope</h3></div>
+          <div class="visual-tags">
+            <span class="visual-tag" data-en="NFPA Compliant" data-ar="متوافق مع NFPA">NFPA Compliant</span>
+            <span class="visual-tag" data-en="Wet/Dry Pipe" data-ar="أنابيب رطبة/جافة">Wet/Dry Pipe</span>
+            <span class="visual-tag" data-en="Gas Suppression" data-ar="إخماد بالغاز">Gas Suppression</span>
+            <span class="visual-tag" data-en="Fire Pumps" data-ar="مضخات الحريق">Fire Pumps</span>
+            <span class="visual-tag" data-en="Control Panels" data-ar="لوحات تحكم">Control Panels</span>
+            <span class="visual-tag" data-en="AMC" data-ar="صيانة سنوية">AMC</span>
+          </div>
+          <div class="visual-note"><strong data-en="International Standards:" data-ar="معايير دولية:">International Standards:</strong> <span data-en="All systems are designed and installed in full compliance with international fire safety standards, tested and commissioned by our certified engineers." data-ar="جميع الأنظمة مصممة ومركبة بما يتوافق تماماً مع معايير السلامة من الحرائق الدولية، ويتم اختبارها وتشغيلها من قبل مهندسينا المعتمدين.">All systems designed and installed in full compliance with international fire safety standards.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:0;">
+          <img src="logo.png" alt="NexGen Build logo" height="44" />
+        </div>
+        <p data-en="Comprehensive construction and industrial fabrication solutions. Trusted by Saudi Aramco and Saudi Energy. Building the future of the Kingdom." data-ar="حلول شاملة للبناء والتصنيع الصناعي. موثوق به من أرامكو السعودية والطاقة السعودية. نبني مستقبل المملكة.">Comprehensive construction and industrial fabrication solutions. Trusted by Saudi Aramco and Saudi Energy.</p>
+        <div class="footer-contact-info">
+          <a href="mailto:H.zaman@Nxgens.com">📧 H.zaman@Nxgens.com</a>
+          <a>📍 <span data-en="Dammam, Saudi Arabia" data-ar="الدمام، المملكة العربية السعودية">Dammam, Saudi Arabia</span></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+        <div class="footer-links">
+          <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+          <a href="about.html" data-en="About Us" data-ar="عن الشركة">About Us</a>
+          <a href="services.html" data-en="Services" data-ar="الخدمات">Services</a>
+          <a href="workshop.html" data-en="Workshop" data-ar="الورشة">Workshop</a>
+          <a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Construction" data-ar="البناء">Construction</h4>
+        <div class="footer-links">
+          <a href="services.html#general" data-en="General Construction" data-ar="البناء العام">General Construction</a>
+          <a href="services.html#electrical" data-en="Electrical Services" data-ar="كهرباء">Electrical</a>
+          <a href="services.html#sanitary" data-en="Sanitary Services" data-ar="صحي">Sanitary</a>
+          <a href="services.html#hvac" data-en="HVAC" data-ar="تكييف وتهوية">HVAC</a>
+          <a href="services.html#waterproofing" data-en="Waterproofing" data-ar="عزل مائي">Waterproofing</a>
+          <a href="services.html#fire" data-en="Fire Fighting" data-ar="إطفاء حريق">Fire Fighting</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Industrial" data-ar="صناعي">Industrial</h4>
+        <div class="footer-links">
+          <a href="workshop.html" data-en="CNC Laser Cutting" data-ar="قطع ليزر">CNC Laser Cutting</a>
+          <a href="workshop.html" data-en="CNC Machining" data-ar="خراطة">CNC Machining</a>
+          <a href="workshop.html" data-en="Metal Fabrication" data-ar="تصنيع معدني">Metal Fabrication</a>
+          <a href="workshop.html" data-en="Welding" data-ar="لحام">Welding</a>
+          <a href="workshop.html" data-en="Leak Repair" data-ar="إصلاح تسرب">Leak Repair</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <span>NexGen Build Company</span>. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.25);" data-en="Saudi Aramco Vendor #10119021 · Saudi Energy Approved Supplier" data-ar="مورد أرامكو السعودية #10119021 · مورد معتمد لدى الطاقة السعودية">Saudi Aramco Vendor #10119021 · Saudi Energy Approved Supplier</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Replace 966555123456 with your WhatsApp number: country code + number, no + or spaces -->
+<a href="https://wa.me/966555123456" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+<script src="main.js" defer></script>
+</body>
+</html>

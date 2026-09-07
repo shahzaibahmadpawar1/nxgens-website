@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" role="img" aria-label="Saudi Energy">
+  <rect width="120" height="48" rx="8" fill="#0066CC"/>
+  <text x="60" y="22" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="11" font-weight="700">SAUDI</text>
+  <text x="60" y="36" text-anchor="middle" fill="#fff" font-family="system-ui,sans-serif" font-size="11" font-weight="700">ENERGY</text>
+</svg>

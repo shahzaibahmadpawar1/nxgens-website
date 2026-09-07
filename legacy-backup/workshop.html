@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Workshop — NexGen Build Company</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="shortcut icon" href="./favicon.png">
+<link rel="apple-touch-icon" href="./favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Barlow+Condensed:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<script>
+try {
+  var __t = localStorage.getItem('theme');
+  if (__t === 'light' || __t === 'dark') {
+    document.documentElement.setAttribute('toggle-theme', __t);
+    document.body.setAttribute('toggle-theme', __t);
+  }
+} catch (e) {}
+</script>
+<!-- Shared nav — keep in sync across pages -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">
+      <img src="logo.png" alt="NexGen Build logo" height="44" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+      <li><a href="about.html" data-en="About Us" data-ar="عن الشركة">About Us</a></li>
+      <li><a href="services.html" data-en="Services" data-ar="الخدمات">Services</a></li>
+      <li><a href="workshop.html" class="active" data-en="Workshop" data-ar="الورشة">Workshop</a></li>
+      <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button type="button" class="theme-toggle" id="btn-theme" aria-pressed="false" aria-label="Toggle color theme" title="Theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>
+      </button>
+      <div class="lang-toggle">
+        <button type="button" class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button type="button" class="lang-btn" id="btn-ar" onclick="setLang('ar')">AR</button>
+      </div>
+      <a class="btn-quote" href="contact.html" data-en="Get a Quote" data-ar="طلب عرض سعر">Get a Quote</a>
+      <div class="hamburger" onclick="toggleMobile()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+  <a href="about.html" data-en="About Us" data-ar="عن الشركة">About Us</a>
+  <a href="services.html" data-en="Services" data-ar="الخدمات">Services</a>
+  <a href="workshop.html" data-en="Workshop" data-ar="الورشة">Workshop</a>
+  <a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+  <div class="mobile-lang">
+    <button type="button" class="lang-btn active" id="m-btn-en" onclick="setLang('en')">EN</button>
+    <button type="button" class="lang-btn" id="m-btn-ar" onclick="setLang('ar')">AR</button>
+  </div>
+  <div class="mobile-theme">
+    <span data-en="Theme" data-ar="المظهر">Theme</span>
+    <button type="button" class="theme-toggle" id="m-btn-theme" aria-pressed="false" aria-label="Toggle color theme" title="Theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</div>
+
+
+  <section class="workshop-hero">
+    <div class="workshop-hero-bg"></div>
+    <div class="hero-infinite-grid" aria-hidden="true"></div>
+    <div class="container workshop-hero-content">
+      <div class="page-breadcrumb">
+        <a href="index.html" style="cursor:pointer;text-decoration:none;color:inherit;" data-en="Home" data-ar="الرئيسية">Home</a> &nbsp;/&nbsp;
+        <span data-en="Workshop & Fabrication" data-ar="الورشة والتصنيع">Workshop & Fabrication</span>
+      </div>
+      <h1 data-en="Industrial <span>Workshop</span> &amp; Fabrication" data-ar="الورشة <span>الصناعية</span> والتصنيع">Industrial <span>Workshop</span> &amp; Fabrication</h1>
+      <p data-en="Precision manufacturing partner dedicated to building the future of the Kingdom. CNC laser cutting, metal fabrication, welding, and industrial maintenance — Dammam & Jubail." data-ar="شريك تصنيع دقيق مخصص لبناء مستقبل المملكة. قطع الليزر CNC والتصنيع المعدني واللحام والصيانة الصناعية — الدمام والجبيل.">Precision manufacturing partner dedicated to building the future of the Kingdom. CNC laser cutting, metal fabrication, welding, and industrial maintenance — Dammam & Jubail.</p>
+      <div class="workshop-hero-badges">
+        <div class="hero-pill">🏭 <span>Dammam</span> — Dammam Workshop</div>
+        <div class="hero-pill">🏭 <span>Jubail</span> — Jubail Workshop</div>
+        <div class="hero-pill">🔬 Fiber Laser Technology</div>
+        <div class="hero-pill">✅ AWS Certified Welders</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workshop-intro">
+    <div class="container">
+      <div class="workshop-intro-grid">
+        <div>
+          <div class="section-label" data-en="About the Workshop" data-ar="عن الورشة">About the Workshop</div>
+          <h2 class="section-title" data-en="Precision at <span>Every Scale</span>" data-ar="الدقة في <span>كل الأحجام</span>">Precision at <span>Every Scale</span></h2>
+          <p style="font-size:15px;color:var(--gray-600);line-height:1.8;margin-top:20px;" data-en="NexGen Build is a premier industrial solutions provider based in Dammam. We specialize in high-precision CNC Laser Cutting, Engraving, and Advanced Routing services, catering to the evolving needs of the construction, oil and gas, and architectural sectors in Saudi Arabia." data-ar="نكست جن بيلد هي مزود متميز للحلول الصناعية مقره الدمام. نتخصص في خدمات القطع بالليزر CNC عالية الدقة والنقش والتوجيه المتقدم، لتلبية الاحتياجات المتطورة لقطاعات البناء والنفط والغاز والهندسة المعمارية في المملكة العربية السعودية.">NexGen Build is a premier industrial solutions provider based in Dammam. We specialize in high-precision CNC Laser Cutting, Engraving, and Advanced Routing services, catering to the evolving needs of the construction, oil and gas, and architectural sectors in Saudi Arabia.</p>
+          <p style="font-size:15px;color:var(--gray-600);line-height:1.8;margin-top:16px;" data-en="With a commitment to technical excellence and operational reliability, we bridge the gap between complex engineering designs and high-quality physical components. Our facility is equipped with state-of-the-art Fiber Laser technology for superior metal fabrication, ensuring that every project — from heavy-duty industrial brackets to detailed architectural partitions — is executed with micron-level accuracy." data-ar="مع التزامنا بالتميز التقني والموثوقية التشغيلية، نسد الفجوة بين التصاميم الهندسية المعقدة والمكونات المادية عالية الجودة. مرفقنا مجهز بأحدث تقنية Fiber Laser للتصنيع المعدني المتفوق، مما يضمن تنفيذ كل مشروع بدقة على مستوى الميكرون.">With a commitment to technical excellence and operational reliability, we bridge the gap between complex engineering designs and high-quality physical components. Our facility is equipped with state-of-the-art Fiber Laser technology, ensuring every project is executed with micron-level accuracy.</p>
+
+          <div style="padding:24px;background:var(--navy);border-radius:var(--radius-lg);margin-top:20px;">
+            <div style="font-size:14px;font-weight:700;color:var(--orange);margin-bottom:12px;" data-en="Materials We Process" data-ar="المواد التي نعالجها">Materials We Process</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span style="padding:5px 12px;border-radius:6px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);font-size:12px;font-weight:600;">Stainless Steel</span>
+              <span style="padding:5px 12px;border-radius:6px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);font-size:12px;font-weight:600;">Carbon Steel</span>
+              <span style="padding:5px 12px;border-radius:6px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);font-size:12px;font-weight:600;">Aluminum</span>
+              <span style="padding:5px 12px;border-radius:6px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);font-size:12px;font-weight:600;">Brass</span>
+              <span style="padding:5px 12px;border-radius:6px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);font-size:12px;font-weight:600;">Acrylic</span>
+              <span style="padding:5px 12px;border-radius:6px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);font-size:12px;font-weight:600;">Wood</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="about-photo">
+            <img src="Picture17.jpg" alt="Workshop preview image">
+          </div>
+          <div style="padding:24px;background:var(--gray-50);border-radius:var(--radius-lg);border:1px solid var(--gray-200);">
+            <div style="font-size:28px;font-weight:800;color:var(--orange);font-family:'Barlow Condensed',sans-serif;"><span class="loader-counter" data-from="8" data-to="1" data-mode="loader" data-duration="2.2" data-prefix="&lt;" data-suffix="%">8</span></div>
+            <div class="workshop-stat-subtitle" data-en="Weld Rejection Rate" data-ar="معدل رفض اللحام">Weld Rejection Rate</div>
+            <div style="font-size:13px;color:var(--gray-600);margin-top:6px;" data-en="Using advanced processes: FCAW, SMAW, GTAW (TIG), GMAW (MIG), SAW." data-ar="باستخدام عمليات متقدمة: FCAW, SMAW, GTAW (TIG), GMAW (MIG), SAW.">Using FCAW, SMAW, GTAW (TIG), GMAW (MIG), and SAW processes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workshop-capabilities">
+    <div class="container">
+      <div class="section-label" data-en="Our Capabilities" data-ar="قدراتنا">Our Capabilities</div>
+      <h2 class="section-title" data-en="Workshop <span>Services</span>" data-ar="خدمات <span>الورشة</span>">Workshop <span>Services</span></h2>
+      <div class="capabilities-grid">
+        <div class="capability-card" data-num="01">
+          <div class="capability-media">
+            <img src="Picture12.jpg" alt="CNC Laser Cutting image">
+          </div>
+          <div class="capability-icon">🔆</div>
+          <h3 data-en="CNC Laser Cutting" data-ar="القطع بالليزر CNC">CNC Laser Cutting</h3>
+          <p data-en="Our Dammam Workshop turns digital designs into perfectly cut metal parts automatically. Using state-of-the-art Fiber Laser technology, we cut metals with micron-level accuracy — clean, sharp edges every time." data-ar="تحول ورشة الدمام التصاميم الرقمية إلى أجزاء معدنية مقطوعة بشكل مثالي تلقائياً. باستخدام تقنية Fiber Laser المتطورة، نقطع المعادن بدقة على مستوى الميكرون.">Using state-of-the-art Fiber Laser technology for superior metal fabrication. Every project from heavy-duty industrial brackets to detailed architectural partitions executed with micron-level accuracy.</p>
+          <div class="capability-tags">
+            <span class="capability-tag">Fiber Laser</span>
+            <span class="capability-tag">Jubail Facility</span>
+            <span class="capability-tag">Sheet Metal</span>
+          </div>
+        </div>
+        <div class="capability-card" data-num="02">
+          <div class="capability-media">
+            <img src="Picture13.jpg" alt="CNC Machining image">
+          </div>
+          <div class="capability-icon">⚙️</div>
+          <h3 data-en="CNC & Manual Machining" data-ar="الخراطة CNC واليدوية">CNC & Manual Machining</h3>
+          <p data-en="Our advanced machine shop offers both CNC and manual machining for precision engineering. We produce high-quality, tight-tolerance components including pump parts, valve components, custom adaptors, moulds, and more." data-ar="تقدم ورشة آلاتنا المتقدمة خراطة CNC ويدوية للهندسة الدقيقة. ننتج مكونات عالية الجودة وذات تفاوتات دقيقة بما فيها أجزاء المضخات ومكونات الصمامات والمحولات المخصصة.">Advanced machine shop offering CNC and manual machining. Pump parts, valve components, custom adaptors, nuts, studs, large-component turning, dies and moulds.</p>
+          <div class="capability-tags">
+            <span class="capability-tag">Dammam Facility</span>
+            <span class="capability-tag">Tight Tolerance</span>
+            <span class="capability-tag">Custom Parts</span>
+          </div>
+        </div>
+        <div class="capability-card" data-num="03">
+          <div class="capability-media">
+            <img src="Picture19.jpg" alt="Metal fabrication image">
+          </div>
+          <div class="capability-icon">🔩</div>
+          <h3 data-en="Metal Fabrication & Engineering" data-ar="التصنيع المعدني والهندسة">Metal Fabrication & Engineering</h3>
+          <p data-en="Metal fabrication through cutting, bending, and assembling processes. We employ welding, cutting, forming, and machining with both human expertise and automation. Office buildings, storage structures, crane girders, pipe racks." data-ar="تصنيع المعادن من خلال عمليات القطع والثني والتجميع. نستخدم اللحام والقطع والتشكيل والتشغيل الآلي مع الخبرة البشرية والأتمتة.">Metal structures through cutting, bending, and assembling. Welding, cutting, forming, and machining — office structures, crane girders, pipe racks, engineering drawings, and job bidding.</p>
+          <div class="capability-tags">
+            <span class="capability-tag">Structural Steel</span>
+            <span class="capability-tag">Pipe Racks</span>
+            <span class="capability-tag">Engineering Drawings</span>
+          </div>
+        </div>
+        <div class="capability-card" data-num="04">
+          <div class="capability-media">
+            <img src="Picture18.jpg" alt="Welding services image">
+          </div>
+          <div class="capability-icon">🔥</div>
+          <h3 data-en="Welding Services" data-ar="خدمات اللحام">Welding Services</h3>
+          <p data-en="Premium specialty welding using FCAW, SMAW, GTAW (TIG), GMAW (MIG), and SAW processes — achieving weld rejection rates under 1%. AWS certified processes for pipe, structural, and pressure vessel welding." data-ar="لحام متخصص متميز باستخدام عمليات FCAW وSMAW وGTAW (TIG) وGMAW (MIG) وSAW — بمعدلات رفض أقل من 1٪.">Premium specialty welding using FCAW, SMAW, GTAW (TIG), GMAW (MIG), and SAW — weld rejection under 1%. AWS certified. Pipe, structural, and pressure vessel welding.</p>
+          <div class="capability-tags">
+            <span class="capability-tag">AWS Certified</span>
+            <span class="capability-tag">&lt;1% Rejection</span>
+            <span class="capability-tag">Pressure Vessels</span>
+          </div>
+        </div>
+        <div class="capability-card" data-num="05">
+          <div class="capability-media">
+            <img src="Picture23.jpg" alt="Online leak repair image">
+          </div>
+          <div class="capability-icon">🔒</div>
+          <h3 data-en="Online Leak Repair" data-ar="إصلاح التسرب الأونلاين">Online Leak Repair</h3>
+          <p data-en="The online leak repair clamp is a specialized tool for quickly sealing leakages during online maintenance of equipment, flanges, pipes, tees, elbows, and valves — with no shutdown required." data-ar="مشبك إصلاح التسرب الأونلاين هو أداة متخصصة لإغلاق التسريبات بسرعة أثناء الصيانة الأونلاين للمعدات والفلنجات والأنابيب.">Specialized tool for quickly sealing leakages during online maintenance of equipment, flanges, pipes, tees, elbows, and valves. No shutdown required. Custom clamp design and fabrication.</p>
+          <div class="capability-tags">
+            <span class="capability-tag">Zero Downtime</span>
+            <span class="capability-tag">Custom Clamps</span>
+            <span class="capability-tag">Pressure Systems</span>
+          </div>
+        </div>
+        <div class="capability-card" data-num="06">
+          <div class="capability-media">
+            <img src="Picture19.jpg" alt="Maintenance and repair image">
+          </div>
+          <div class="capability-icon">🛠️</div>
+          <h3 data-en="Maintenance & Repair" data-ar="الصيانة والإصلاح">Maintenance & Repair</h3>
+          <p data-en="Complete maintenance and specialized online leak repair for boilers, heaters, power plants, and industrial equipment using proprietary clamping technology. Trained technicians with 24/7 support available." data-ar="صيانة كاملة وإصلاح تسرب متخصص للغلايات وسخانات ومحطات الطاقة والمعدات الصناعية باستخدام تقنية التثبيت الخاصة.">Complete maintenance for boilers, heaters, power plants, and industrial equipment. Proprietary clamping technology with 24/7 trained technician support.</p>
+          <div class="capability-tags">
+            <span class="capability-tag">24/7 Support</span>
+            <span class="capability-tag">Boilers & Heaters</span>
+            <span class="capability-tag">Power Plants</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workshop-locations">
+    <div class="container">
+      <div class="section-label" style="color:var(--orange-light);" data-en="Our Facilities" data-ar="مرافقنا">Our Facilities</div>
+      <h2 class="section-title" style="color:white;" data-en="Workshop <span>Locations</span>" data-ar="مواقع <span>الورشة</span>">Workshop <span>Locations</span></h2>
+      <div class="locations-grid">
+        <div class="location-card">
+          <div class="location-photo">
+            <img src="Picture22.jpg" alt="Jubail Workshop facility image">
+          </div>
+          <div class="location-num"><span class="loader-counter" data-from="0" data-to="1" data-pad="2" data-mode="loader" data-duration="1.8">00</span></div>
+          <h3 data-en="Jubail Workshop" data-ar="ورشة الجبيل">Jubail Workshop</h3>
+          <p data-en="Our primary industrial workshop offering CNC machining, lathe operations, metal fabrication, welding, and online leak repair services. State-of-the-art equipment for precision components across oil & gas, construction, and industrial sectors." data-ar="ورشتنا الصناعية الرئيسية التي تقدم تشغيل CNC وعمليات الخراطة والتصنيع المعدني واللحام وخدمات إصلاح التسرب الأونلاين.">Primary industrial workshop — CNC machining, lathe operations, metal fabrication, welding, and online leak repair. Serving oil & gas, construction, and industrial sectors.</p>
+          <div class="location-address">📍 <strong data-en="Jubail Industrial Area" data-ar="المنطقة الصناعية، الجبيل">Jubail Industrial Area</strong></div>
+        </div>
+        <div class="location-card">
+          <div class="location-photo">
+            <img src="Picture24.jpg" alt="Dammam Workshop facility image">
+          </div>
+          <div class="location-num"><span class="loader-counter" data-from="0" data-to="2" data-pad="2" data-mode="loader" data-duration="1.8">00</span></div>
+          <h3 data-en="Dammam Workshop" data-ar="ورشة الدمام">Dammam Workshop</h3>
+          <p data-en="Dedicated CNC Laser Cutting facility equipped with state-of-the-art Fiber Laser technology. Specializing in high-precision cutting, engraving, and advanced routing for construction, architectural, and industrial applications." data-ar="مرافق قطع ليزر CNC مخصصة مجهزة بأحدث تقنية Fiber Laser. متخصصة في القطع والنقش والتوجيه المتقدم عالي الدقة.">Dedicated CNC Laser Cutting facility with Fiber Laser technology. High-precision cutting, engraving, and routing for construction, architectural, and industrial applications.</p>
+          <div class="location-address">📍 <strong data-en="Dallah Industrial Area, Dammam" data-ar="المنطقة الصناعية دله، الدمام">Dallah Industrial Area, Dammam</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:0;">
+          <img src="logo.png" alt="NexGen Build logo" height="44" />
+        </div>
+        <p data-en="Comprehensive construction and industrial fabrication solutions. Trusted by Saudi Aramco and Saudi Energy. Building the future of the Kingdom." data-ar="حلول شاملة للبناء والتصنيع الصناعي. موثوق به من أرامكو السعودية والطاقة السعودية. نبني مستقبل المملكة.">Comprehensive construction and industrial fabrication solutions. Trusted by Saudi Aramco and Saudi Energy.</p>
+        <div class="footer-contact-info">
+          <a href="mailto:H.zaman@Nxgens.com">📧 H.zaman@Nxgens.com</a>
+          <a>📍 <span data-en="Dammam, Saudi Arabia" data-ar="الدمام، المملكة العربية السعودية">Dammam, Saudi Arabia</span></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+        <div class="footer-links">
+          <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+          <a href="about.html" data-en="About Us" data-ar="عن الشركة">About Us</a>
+          <a href="services.html" data-en="Services" data-ar="الخدمات">Services</a>
+          <a href="workshop.html" data-en="Workshop" data-ar="الورشة">Workshop</a>
+          <a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Construction" data-ar="البناء">Construction</h4>
+        <div class="footer-links">
+          <a href="services.html#general" data-en="General Construction" data-ar="البناء العام">General Construction</a>
+          <a href="services.html#electrical" data-en="Electrical Services" data-ar="كهرباء">Electrical</a>
+          <a href="services.html#sanitary" data-en="Sanitary Services" data-ar="صحي">Sanitary</a>
+          <a href="services.html#hvac" data-en="HVAC" data-ar="تكييف وتهوية">HVAC</a>
+          <a href="services.html#waterproofing" data-en="Waterproofing" data-ar="عزل مائي">Waterproofing</a>
+          <a href="services.html#fire" data-en="Fire Fighting" data-ar="إطفاء حريق">Fire Fighting</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-en="Industrial" data-ar="صناعي">Industrial</h4>
+        <div class="footer-links">
+          <a href="workshop.html" data-en="CNC Laser Cutting" data-ar="قطع ليزر">CNC Laser Cutting</a>
+          <a href="workshop.html" data-en="CNC Machining" data-ar="خراطة">CNC Machining</a>
+          <a href="workshop.html" data-en="Metal Fabrication" data-ar="تصنيع معدني">Metal Fabrication</a>
+          <a href="workshop.html" data-en="Welding" data-ar="لحام">Welding</a>
+          <a href="workshop.html" data-en="Leak Repair" data-ar="إصلاح تسرب">Leak Repair</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <span>NexGen Build Company</span>. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.25);" data-en="Saudi Aramco Vendor #10119021 · Saudi Energy Approved Supplier" data-ar="مورد أرامكو السعودية #10119021 · مورد معتمد لدى الطاقة السعودية">Saudi Aramco Vendor #10119021 · Saudi Energy Approved Supplier</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Replace 966555123456 with your WhatsApp number: country code + number, no + or spaces -->
+<a href="https://wa.me/966555123456" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+<script src="main.js" defer></script>
+</body>
+</html>
