@@ -58,23 +58,23 @@ export const Footer: React.FC = () => {
           <div className="footer-col">
             <h4>{t('Construction', 'البناء')}</h4>
             <div className="footer-links">
-              <Link href="/services#general">{t('General Construction', 'البناء العام')}</Link>
-              <Link href="/services#electrical">{t('Electrical', 'كهرباء')}</Link>
-              <Link href="/services#sanitary">{t('Sanitary', 'صحي')}</Link>
-              <Link href="/services#hvac">{t('HVAC', 'تكييف وتهوية')}</Link>
-              <Link href="/services#waterproofing">{t('Waterproofing', 'عزل مائي')}</Link>
-              <Link href="/services#fire">{t('Fire Fighting', 'إطفاء حريق')}</Link>
+              <a href="/services#general">{t('General Construction', 'البناء العام')}</a>
+              <a href="/services#electrical">{t('Electrical', 'كهرباء')}</a>
+              <a href="/services#sanitary">{t('Sanitary', 'صحي')}</a>
+              <a href="/services#hvac">{t('HVAC', 'تكييف وتهوية')}</a>
+              <a href="/services#waterproofing">{t('Waterproofing', 'عزل مائي')}</a>
+              <a href="/services#fire">{t('Fire Fighting', 'إطفاء حريق')}</a>
             </div>
           </div>
           
           <div className="footer-col">
             <h4>{t('Industrial', 'صناعي')}</h4>
             <div className="footer-links">
-              <Link href="/workshop">{t('CNC Laser Cutting', 'قطع ليزر')}</Link>
-              <Link href="/workshop">{t('CNC Machining', 'خراطة')}</Link>
-              <Link href="/fabrication-shop">{t('Metal Fabrication', 'تصنيع معدني')}</Link>
-              <Link href="/fabrication-shop">{t('Welding', 'لحام')}</Link>
-              <Link href="/workshop">{t('Repair Services', 'خدمات الإصلاح')}</Link>
+              <a href="/workshop#laser-cutting">{t('CNC Laser Cutting', 'قطع ليزر')}</a>
+              <a href="/workshop#machining">{t('CNC Machining', 'خراطة')}</a>
+              <a href="/fabrication-shop">{t('Metal Fabrication', 'تصنيع معدني')}</a>
+              <a href="/workshop#welding">{t('Welding', 'لحام')}</a>
+              <a href="/workshop#maintenance">{t('Repair Services', 'خدمات الإصلاح')}</a>
             </div>
           </div>
         </div>

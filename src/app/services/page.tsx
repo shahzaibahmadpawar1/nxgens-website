@@ -384,23 +384,9 @@ export default function ServicesPage() {
 
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
-    
-    const handleLinkClick = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest('a');
-      if (target && target.href && target.href.includes('/services#')) {
-        const url = new URL(target.href);
-        const targetHash = url.hash.replace('#', '');
-        const allowed = SERVICES_DATA.map((s) => s.id);
-        if (targetHash && allowed.includes(targetHash)) {
-          setActiveTab(targetHash);
-        }
-      }
-    };
-    window.addEventListener('click', handleLinkClick);
 
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
-      window.removeEventListener('click', handleLinkClick);
     };
   }, [lang]);
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { Counter } from '@/components/Counter';
@@ -690,6 +690,26 @@ export default function WorkshopPage() {
   const [activeTab, setActiveTab] = useState<number>(0);
   const [hoveredTab, setHoveredTab] = useState<number | null>(null);
 
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash) {
+        const index = SERVICES_DATA.findIndex((s) => s.id === hash);
+        if (index !== -1) {
+          setActiveTab(index);
+        }
+      }
+    };
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const selectTab = (idx: number) => {
+    setActiveTab(idx);
+    window.location.hash = SERVICES_DATA[idx].id;
+  };
+
   const activeSvc = SERVICES_DATA[activeTab];
 
   return (
@@ -773,6 +793,13 @@ export default function WorkshopPage() {
             <h2 className="section-title" style={{ marginTop: '12px' }} dangerouslySetInnerHTML={{ __html: t('Specialized Workshop <span>Divisions</span>', 'أقسام <span>الورشة المتخصصة</span>') }}></h2>
           </div>
 
+          {/* NATIVE SCROLL ANCHORS FOR FOOTER LINKS */}
+          <div style={{ position: 'relative' }}>
+            {SERVICES_DATA.map((s) => (
+              <div key={`anchor-${s.id}`} id={s.id} style={{ position: 'absolute', top: '-100px' }} aria-hidden="true" />
+            ))}
+          </div>
+
           {/* Horizontal Tab Navigation */}
           <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', paddingBottom: '14px', marginBottom: '40px', borderBottom: '1px solid var(--gray-200)' }}>
             {SERVICES_DATA.map((svc, idx) => {
@@ -781,7 +808,7 @@ export default function WorkshopPage() {
               return (
                 <button
                   key={svc.id}
-                  onClick={() => setActiveTab(idx)}
+                  onClick={() => selectTab(idx)}
                   onMouseEnter={() => setHoveredTab(idx)}
                   onMouseLeave={() => setHoveredTab(null)}
                   style={{
