@@ -1,10 +1,55 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+// In-memory store for rate limiting (for demonstration/simple usage)
+const rateLimitMap = new Map<string, { count: number; timestamp: number }>();
+const RATE_LIMIT_WINDOW = 60 * 1000 * 15; // 15 minutes
+const MAX_REQUESTS = 5;
+
+// Basic HTML sanitizer to prevent XSS / malicious scripts
+function sanitizeInput(input: string): string {
+  if (!input) return '';
+  return input
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;")
+    .replace(/\//g, "&#x2F;")
+    .trim();
+}
+
 export async function POST(request: Request) {
   try {
+    // 1. Rate Limiting
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
+    if (ip !== 'unknown') {
+      const now = Date.now();
+      const limitRecord = rateLimitMap.get(ip);
+      
+      if (limitRecord) {
+        if (now - limitRecord.timestamp < RATE_LIMIT_WINDOW) {
+          if (limitRecord.count >= MAX_REQUESTS) {
+            return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
+          }
+          limitRecord.count += 1;
+        } else {
+          rateLimitMap.set(ip, { count: 1, timestamp: now });
+        }
+      } else {
+        rateLimitMap.set(ip, { count: 1, timestamp: now });
+      }
+    }
+
     const data = await request.json();
-    const { firstName, lastName, email, phone, service, message, recaptchaToken } = data;
+    const { firstName, lastName, email, phone, service, message, recaptchaToken, website } = data;
+
+    // 2. Honeypot Check
+    if (website) {
+      // If the honeypot field is filled, silently reject or return generic error
+      console.warn(`Bot detected (honeypot filled) from IP: ${ip}`);
+      return NextResponse.json({ error: 'Invalid submission' }, { status: 400 });
+    }
 
     if (!firstName || !email) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -13,6 +58,14 @@ export async function POST(request: Request) {
     if (!recaptchaToken) {
       return NextResponse.json({ error: 'reCAPTCHA token missing' }, { status: 400 });
     }
+
+    // 3. Sanitization
+    const sFirstName = sanitizeInput(firstName);
+    const sLastName = sanitizeInput(lastName);
+    const sEmail = sanitizeInput(email);
+    const sPhone = sanitizeInput(phone);
+    const sService = sanitizeInput(service);
+    const sMessage = sanitizeInput(message);
 
     // Verify reCAPTCHA token
     const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
@@ -41,18 +94,18 @@ export async function POST(request: Request) {
     });
 
     const mailOptions = {
-      from: process.env.SMTP_USER, // Sender address (must match auth user on most cPanels)
-      to: 'contact@nxgens.com', // Receiver address
-      replyTo: email, // Reply to the person who submitted the form
-      subject: `New Contact Form Submission from ${firstName} ${lastName || ''}`,
+      from: process.env.SMTP_USER,
+      to: 'contact@nxgens.com',
+      replyTo: sEmail,
+      subject: `New Contact Form Submission from ${sFirstName} ${sLastName || ''}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${firstName} ${lastName || ''}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
-        <p><strong>Service Requested:</strong> ${service || 'N/A'}</p>
+        <p><strong>Name:</strong> ${sFirstName} ${sLastName || ''}</p>
+        <p><strong>Email:</strong> ${sEmail}</p>
+        <p><strong>Phone:</strong> ${sPhone || 'N/A'}</p>
+        <p><strong>Service Requested:</strong> ${sService || 'N/A'}</p>
         <p><strong>Message:</strong></p>
-        <p>${message ? message.replace(/\n/g, '<br>') : 'N/A'}</p>
+        <p>${sMessage ? sMessage.replace(/\n/g, '<br>') : 'N/A'}</p>
       `,
     };
 

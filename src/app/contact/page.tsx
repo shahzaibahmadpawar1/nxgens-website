@@ -15,6 +15,7 @@ export default function ContactPage() {
     phone: '',
     service: '',
     message: '',
+    website: '', // Honeypot field
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -78,6 +79,7 @@ export default function ContactPage() {
       phone: '',
       service: '',
       message: '',
+      website: '',
     });
     setFormSubmitted(false);
   };
@@ -116,6 +118,21 @@ export default function ContactPage() {
               {!formSubmitted ? (
                 <form id="contactForm" onSubmit={handleSubmit}>
                   <div className="form-title">{t('Send Us a Message', 'أرسل لنا رسالة')}</div>
+                  
+                  {/* Honeypot Field - Hidden from humans, filled by bots */}
+                  <div style={{ display: 'none', position: 'absolute', left: '-9999px' }} aria-hidden="true">
+                    <label htmlFor="website">Website</label>
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formData.website}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+
                   <div className="form-row">
                     <div className="form-group">
                       <label>{t('First Name', 'الاسم الأول')}</label>
