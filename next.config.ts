@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // Do not use output: 'export' — cPanel Node.js App needs a running
+  // Next server so /api/contact (email) works.
   trailingSlash: true,
   async headers() {
     return [

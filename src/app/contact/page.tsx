@@ -161,7 +161,7 @@ export default function ContactPage() {
                     <input
                       type="email"
                       id="email"
-                      placeholder={t('john@company.com', 'ahmed@company.com')}
+                      placeholder={t('huzaifa@company.com', 'ahmed@company.com')}
                       value={formData.email}
                       onChange={handleInputChange}
                       required
