@@ -1,60 +1,60 @@
-# Next.js Static Export URL Rewrite Rules for cPanel / Apache
-# With trailingSlash enabled, Apache natively maps requests to directory index.html files.
+# Next.js Static Export — upload contents of `out/` to cPanel public_html
 RewriteEngine On
 
-# Optional: Redirect requests without trailing slashes to trailing slashes
-# e.g., /services -> /services/
+# ============================================================================
+# RSC PATH FIX (must run FIRST)
+# Client asks:  /contact/__next.contact.__PAGE__.txt
+# File on disk: /contact/__next.contact/__PAGE__.txt
+# ============================================================================
+RewriteRule ^(.*)/__next\.([^.]+)\.__PAGE__\.txt$ $1/__next.$2/__PAGE__.txt [L]
+RewriteRule ^__next\.([^.]+)\.__PAGE__\.txt$ __next.$1/__PAGE__.txt [L]
+
+# Skip existing files and directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Do not rewrite Next static assets / JSON (do NOT blanket-skip .txt — RSC needs rewrite above)
+RewriteCond %{REQUEST_URI} ^/_next/ [OR]
+RewriteCond %{REQUEST_URI} ^/__next/
+RewriteRule ^ - [L]
+
+# Trailing slash for pretty URLs (matches trailingSlash: true)
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !(.*)/$
 RewriteRule ^(.*)$ %{REQUEST_URI}/ [L,R=301]
 
-# Serve Next.js native 404 page for missing resources
 ErrorDocument 404 /404.html
-
-# Fix for Next.js App Router RSC payload fetches with trailing slash enabled
-# Rewrites requests like /contact/__next.contact.__PAGE__.txt to /contact/__next.contact/__PAGE__.txt
-RewriteRule ^(.*)/__next\.([^.]+)\.__PAGE__\.txt$ $1/__next.$2/__PAGE__.txt [L]
-RewriteRule ^__next\.([^.]+)\.__PAGE__\.txt$ __next.$1/__PAGE__.txt [L]
 
 # ============================================================================
 # SECURITY HEADERS
 # ============================================================================
-
 <IfModule mod_headers.c>
-  # Strict-Transport-Security - Force HTTPS
   Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-  
-  # Content-Security-Policy - Prevent XSS attacks
-  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
-  
-  # X-Frame-Options - Prevent clickjacking
+
+  # Allows Google reCAPTCHA + FormSubmit (static contact form) — unchanged
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://www.google.com/recaptcha/ https://www.gstatic.com https://www.gstatic.com/recaptcha/ https://recaptcha.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.gstatic.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com https://www.gstatic.com; connect-src 'self' https: https://www.google.com https://www.gstatic.com https://recaptcha.net https://formsubmit.co https://*.formsubmit.co; frame-src 'self' https://www.google.com https://www.google.com/recaptcha/ https://recaptcha.google.com https://recaptcha.google.com/recaptcha/ https://recaptcha.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;"
+
   Header set X-Frame-Options "DENY"
-  
-  # X-Content-Type-Options - Prevent MIME sniffing
   Header set X-Content-Type-Options "nosniff"
-  
-  # Referrer-Policy - Control referrer information
   Header set Referrer-Policy "strict-origin-when-cross-origin"
-  
-  # Permissions-Policy - Disable browser features
   Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
 </IfModule>
 
 # ============================================================================
-# COMPRESSION & CACHING (Optional but recommended)
+# COMPRESSION & CACHING
 # ============================================================================
-
-# Enable gzip compression
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 </IfModule>
 
-# Browser caching
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access plus 1 hour"
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType application/json "access plus 1 hour"
   ExpiresByType image/* "access plus 1 year"
   ExpiresByType font/* "access plus 1 year"
 </IfModule>

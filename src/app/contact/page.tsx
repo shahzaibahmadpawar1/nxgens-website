@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { InteractiveGrid } from '@/components/InteractiveGrid';
@@ -40,6 +40,12 @@ export default function ContactPage() {
       return;
     }
     
+    // Honeypot: bots fill this; humans never see it
+    if (formData.website) {
+      setFormSubmitted(true);
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       const token = await executeRecaptcha();
@@ -50,12 +56,28 @@ export default function ContactPage() {
         return;
       }
 
-      const response = await fetch('/api/contact', {
+      // Static hosting: no Next.js API. FormSubmit delivers email to the inbox.
+      const endpoint =
+        process.env.NEXT_PUBLIC_FORMSUBMIT_ENDPOINT ||
+        'https://formsubmit.co/ajax/contact@nxgens.com';
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        body: JSON.stringify({ ...formData, recaptchaToken: token }),
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`.trim(),
+          email: formData.email,
+          phone: formData.phone || 'N/A',
+          service: formData.service || 'N/A',
+          message: formData.message || 'N/A',
+          _subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`.trim(),
+          _template: 'table',
+          _captcha: 'false',
+          'g-recaptcha-response': token,
+        }),
       });
 
       if (response.ok) {
