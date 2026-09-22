@@ -770,7 +770,7 @@ export default function WorkshopPage() {
                   { enCap: 'Welding Certification', arCap: 'اعتمادات اللحام المعتمدة', enDet: 'AWS D1.1 & D1.4 certified processes', arDet: 'عمليات لحام معتمدة وفقاً لـ AWS D1.1 و D1.4' },
                   { enCap: 'Weld Rejection Rate', arCap: 'معدل رفض اللحامات', enDet: '<1% (industry-leading quality)', arDet: 'أقل من 1٪ (مستوى جودة رائد في الصناعة)' },
                   { enCap: 'Materials Processed', arCap: 'المواد التي يتم معالجتها', enDet: 'Steel, stainless steel, aluminum, brass, acrylic, wood', arDet: 'الصلب، الستانلس ستيل، الألمنيوم، النحاس الأصفر، الأكريليك، الخشب' },
-                  { enCap: 'Facility Locations', arCap: 'مواقع الورش والمرافق', enDet: 'Dammam (laser cutting) + Jubail (machining & welding)', arDet: 'الدمام (منشأة قطع الليزر) + الجبيل (منشأة التشغيل واللحام)' },
+                  { enCap: 'Facility Locations', arCap: 'مواقع الورش والمرافق', enDet: 'Dammam + Jubail (online leak repair, machining & welding)', arDet: 'الدمام والجبيل (إصلاح التسرب الأونلاين والتشغيل واللحام)' },
                   { enCap: 'Emergency Support', arCap: 'دعم الطوارئ والإنقاذ', enDet: '24/7 emergency services available', arDet: 'تتوفر خدمات صيانة وإصلاح طارئة على مدار الساعة 24/7' },
                   { enCap: 'Workshop Space', arCap: 'إجمالي مساحات العمل', enDet: '4,000+ m² of modern, equipped facility', arDet: 'أكثر من 4,000 متر مربع من المرافق الصناعية الحديثة والمجهزة' }
                 ].map((row, idx) => (
@@ -1137,7 +1137,7 @@ export default function WorkshopPage() {
               <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
                 <img src="/Picture22.jpg" alt="Jubail Workshop" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '20px', left: lang === 'ar' ? 'auto' : '20px', right: lang === 'ar' ? '20px' : 'auto', background: 'var(--orange)', color: 'white', padding: '6px 14px', borderRadius: '4px', fontSize: '12px', fontWeight: 700 }}>
-                  {t('Heavy Machining & Welding', 'الخراطة الثقيلة واللحام')}
+                  {t('Online Leak Repair & Fabrication', 'إصلاح التسرب الأونلاين والتصنيع')}
                 </div>
               </div>
               <div style={{ padding: '30px' }}>
@@ -1147,9 +1147,9 @@ export default function WorkshopPage() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '13.5px', color: 'rgba(255,255,255,0.7)' }}>
                   <div>📍 <strong>{t('Jubail Industrial Area', 'المنطقة الصناعية، الجبيل')}</strong></div>
                   <div>📐 <strong>{t('Facility Size:', 'مساحة المنشأة:')}</strong> {t('1,500 m² specialized facility space', '1,500 متر مربع من المساحة المتخصصة')}</div>
-                  <div>🛠️ <strong>{t('Key Equipment:', 'المعدات الرئيسية:')}</strong> {t('Large-diameter CNC turning lathes, 5-axis CNC mills, welding stations (GTAW, GMAW, FCAW, SMAW, SAW), and pressure-testing chambers.', 'مخارط CNC ذات أقطار كبيرة، فارزات خماسية المحاور، محطات لحام شاملة، وغرف اختبار الضغط.')}</div>
-                  <div>⚡ <strong>{t('Services:', 'الخدمات المتاحة:')}</strong> {t('Large shaft turning, multi-axis milling, certified structural & pressure welding, ASME repairs, and leak clamp fabrication.', 'خرط المحاور الكبيرة، تفريز خماسي المحاور، لحام الهياكل والضغط المعتمد، وإصلاحات ASME.')}</div>
-                  <div>⏱️ <strong>{t('Lead Times:', 'مواعيد التسليم:')}</strong> {t('CNC turning: 2-3 days | Complex machining: 3-5 days | Welding: 2-7 days', 'خراطة CNC: 2-3 أيام | تشغيل معقد: 3-5 أيام | اللحام: 2-7 أيام')}</div>
+                  <div>🛠️ <strong>{t('Key Equipment:', 'المعدات الرئيسية:')}</strong> {t('Heavy-duty turning lathes, milling machines, welding stations (GTAW, GMAW, FCAW, SMAW, SAW), and pressure-testing chambers.', 'مخارط ثقيلة، آلات تفريز، محطات لحام شاملة، وغرف اختبار الضغط.')}</div>
+                  <div>⚡ <strong>{t('Services:', 'الخدمات المتاحة:')}</strong> {t('Online leak repair clamps, metal fabrication, certified welding, machining, and plant & pipeline maintenance.', 'مشابك إصلاح التسرب الأونلاين، تصنيع المعادن، اللحام المعتمد، التشغيل، وصيانة المصانع وخطوط الأنابيب.')}</div>
+                  <div>⏱️ <strong>{t('Lead Times:', 'مواعيد التسليم:')}</strong> {t('Leak repair: same-day response | Machining: 2-5 days | Welding: 2-7 days', 'إصلاح التسرب: استجابة في نفس اليوم | التشغيل: 2-5 أيام | اللحام: 2-7 أيام')}</div>
                 </div>
               </div>
             </div>
@@ -1231,8 +1231,8 @@ export default function WorkshopPage() {
                   {t('Unexpected process leak or equipment failure? Call our emergency line directly. Industrial technician on-call.', 'تسريب مفاجئ أو عطل طارئ في المعدات؟ اتصل بخط الطوارئ الخاص بنا مباشرة. فني صناعي جاهز للتحرك.')}
                 </p>
               </div>
-              <a href="tel:+966534758685" style={{ display: 'inline-block', padding: '12px 24px', border: '2px solid white', color: 'white', fontWeight: 700, textAlign: 'center', textDecoration: 'none', borderRadius: '6px', transition: 'all 0.3s' }} onMouseOver={(e) => { e.currentTarget.style.background = 'white'; e.currentTarget.style.color = 'var(--navy)'; }} onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'white'; }}>
-                {t('Call +966-53-475-8685', 'اتصل على 966534758685+')}
+              <a href="tel:+966534169741" style={{ display: 'inline-block', padding: '12px 24px', border: '2px solid white', color: 'white', fontWeight: 700, textAlign: 'center', textDecoration: 'none', borderRadius: '6px', transition: 'all 0.3s' }} onMouseOver={(e) => { e.currentTarget.style.background = 'white'; e.currentTarget.style.color = 'var(--navy)'; }} onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'white'; }}>
+                {t('Call +966534169741', 'اتصل على +966534169741')}
               </a>
             </div>
 

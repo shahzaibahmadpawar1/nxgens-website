@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="footer-contact-info">
               <a href="mailto:contact@Nxgens.com">📧 contact@Nxgens.com</a>
-              <a href="https://wa.me/966555123456" target="_blank" rel="noopener noreferrer">💬 +966-555-123-456</a>
+              <a href="https://wa.me/966534169741" target="_blank" rel="noopener noreferrer">💬 +966534169741</a>
               <a>📍 <span>{t('Dammam, Saudi Arabia (Jubail facilities)', 'الدمام، المملكة العربية السعودية (مرافقنا أيضاً في الجبيل)')}</span></a>
             </div>
           </div>

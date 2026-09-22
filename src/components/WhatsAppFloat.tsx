@@ -3,7 +3,7 @@ import React from 'react';
 export const WhatsAppFloat: React.FC = () => {
   return (
     <a
-      href="https://wa.me/966555123456"
+      href="https://wa.me/966534169741"
       className="whatsapp-float"
       target="_blank"
       rel="noopener noreferrer"

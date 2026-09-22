@@ -288,8 +288,8 @@ export default function ContactPage() {
                       </a>
                     </p>
                     <span>
-                      <a href="tel:+966534758685" style={{ color: 'inherit', textDecoration: 'none' }}>
-                        +966 53 475 8685
+                      <a href="tel:+966534169741" style={{ color: 'inherit', textDecoration: 'none' }}>
+                        +966534169741
                       </a>
                     </span>
                   </div>
@@ -314,11 +314,11 @@ export default function ContactPage() {
                 </div>
 
                 <div className="info-card">
-                  <div className="info-icon">🔆</div>
+                  <div className="info-icon">🏭</div>
                   <div className="info-content">
-                    <h4>{t('Laser Cutting Facility', 'مرفق القطع بالليزر')}</h4>
+                    <h4>{t('Jubail Workshop', 'ورشة الجبيل')}</h4>
                     <p>{t('Jubail Industrial Area', 'المنطقة الصناعية، الجبيل')}</p>
-                    <span>{t('CNC Laser Cutting & Engraving', 'قطع ليزر CNC ونقش')}</span>
+                    <span>{t('Online Leak Repair, Machining & Welding', 'إصلاح التسرب الأونلاين والتشغيل واللحام')}</span>
                   </div>
                 </div>
               </div>

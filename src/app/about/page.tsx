@@ -511,13 +511,13 @@ export default function AboutPage() {
               </div>
               <h4 style={{ fontSize: '12px', fontWeight: 700, color: 'var(--orange)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px', marginTop: 0 }}>{t('Equipment', 'المعدات والأنظمة')}</h4>
               <ul style={{ padding: 0, margin: '0 0 24px 0', listStyleType: 'none', display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '13px', color: 'var(--gray-600)' }}>
-                {['CNC fiber laser cutting systems', 'Heavy-duty industrial machining centers', 'Large-scale metal fabrication bays', 'Specialty welding structures & facilities', 'Quality assurance and calibration testing lab'].map((eq, idx) => (
+                {['Online leak repair clamp fabrication', 'Heavy-duty industrial machining centers', 'Large-scale metal fabrication bays', 'Specialty welding stations (TIG, MIG, SMAW, FCAW, SAW)', 'Plant & pipeline maintenance support'].map((eq, idx) => (
                   <li key={idx} style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--orange)' }}>•</span>{t(eq, eq)}</li>
                 ))}
               </ul>
               <h4 style={{ fontSize: '12px', fontWeight: 700, color: 'var(--orange)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px', marginTop: 0 }}>{t('Capabilities', 'القدرات والإنتاجية')}</h4>
               <ul style={{ padding: 0, margin: 0, listStyleType: 'none', display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '13px', color: 'var(--gray-600)' }}>
-                {['Large-scale structural industrial fabrication', 'Specialized heavy pressure vessel assemblies', 'Complex welded systems and skid assemblies', 'Rapid industrial prototyping and production scale manufacturing'].map((cap, idx) => (
+                {['Online leak sealing without shutdown', 'Structural steel fabrication & welding', 'Precision machining of pumps, valves & shafts', 'Erection, installation & lifting solutions'].map((cap, idx) => (
                   <li key={idx} style={{ display: 'flex', gap: '8px' }}><span style={{ color: 'var(--orange)' }}>•</span>{t(cap, cap)}</li>
                 ))}
               </ul>
@@ -704,7 +704,7 @@ export default function AboutPage() {
             </Link>
           </div>
           <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '12px', marginTop: '16px' }}>
-            📧 H.zaman@Nxgens.com | 💬 +966-555-123-456
+            📧 H.zaman@Nxgens.com | 💬 +966534169741
           </div>
         </div>
       </section>
