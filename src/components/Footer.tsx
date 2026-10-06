@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { COMPANY_PROFILE_FILENAME, COMPANY_PROFILE_HREF } from '@/lib/companyProfile';
 
 export const Footer: React.FC = () => {
   const { t, lang } = useLanguage();
@@ -20,9 +21,20 @@ export const Footer: React.FC = () => {
               {t('Get in touch with our engineering team for a professional assessment and quote.', 'تواصل مع فريقنا الهندسي للحصول على تقييم وعرض سعر احترافي.')}
             </p>
           </div>
-          <Link href="/contact" style={{ padding: '12px 28px', background: 'var(--orange)', color: 'white', borderRadius: '8px', fontWeight: 700, textDecoration: 'none', transition: 'background 0.3s ease' }} onMouseOver={(e) => e.currentTarget.style.background = '#d55313'} onMouseOut={(e) => e.currentTarget.style.background = 'var(--orange)'}>
-            {t('Get in Touch', 'تواصل معنا')}
-          </Link>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
+            <a
+              href={COMPANY_PROFILE_HREF}
+              download={COMPANY_PROFILE_FILENAME}
+              style={{ padding: '12px 22px', background: 'transparent', border: '1.5px solid var(--orange)', color: 'var(--orange)', borderRadius: '8px', fontWeight: 700, textDecoration: 'none', transition: 'all 0.3s ease' }}
+              onMouseOver={(e) => { e.currentTarget.style.background = 'var(--orange)'; e.currentTarget.style.color = 'white'; }}
+              onMouseOut={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--orange)'; }}
+            >
+              {t('Download Profile', 'تحميل الملف')}
+            </a>
+            <Link href="/contact" style={{ padding: '12px 28px', background: 'var(--orange)', color: 'white', borderRadius: '8px', fontWeight: 700, textDecoration: 'none', transition: 'background 0.3s ease' }} onMouseOver={(e) => e.currentTarget.style.background = '#d55313'} onMouseOut={(e) => e.currentTarget.style.background = 'var(--orange)'}>
+              {t('Get in Touch', 'تواصل معنا')}
+            </Link>
+          </div>
         </div>
 
         <div className="footer-grid">
@@ -52,6 +64,9 @@ export const Footer: React.FC = () => {
               <Link href="/workshop">{t('Workshop', 'الورشة')}</Link>
               <Link href="/fabrication-shop">{t('Fabrication Shop', 'ورشة التصنيع')}</Link>
               <Link href="/contact">{t('Contact', 'تواصل معنا')}</Link>
+              <a href={COMPANY_PROFILE_HREF} download={COMPANY_PROFILE_FILENAME}>
+                {t('Download Company Profile', 'تحميل ملف الشركة')}
+              </a>
             </div>
           </div>
           

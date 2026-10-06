@@ -1,8 +1,11 @@
 import React from 'react';
+import Script from 'next/script';
 
 export const ThemeInit: React.FC = () => {
   return (
-    <script
+    <Script
+      id="theme-init"
+      strategy="beforeInteractive"
       dangerouslySetInnerHTML={{
         __html: `
           (function() {

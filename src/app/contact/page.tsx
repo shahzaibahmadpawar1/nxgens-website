@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { InteractiveGrid } from '@/components/InteractiveGrid';
 import { useRecaptcha } from '@/context/RecaptchaContext';
+import { CompanyProfileActions } from '@/components/CompanyProfileActions';
+import { COMPANY_PROFILE_FILENAME, COMPANY_PROFILE_HREF } from '@/lib/companyProfile';
 
 export default function ContactPage() {
   const { t } = useLanguage();
@@ -127,6 +129,7 @@ export default function ContactPage() {
               'تواصل معنا للحصول على استشارة مجانية أو عرض أسعار للمشروع. فريقنا جاهز للمساعدة في أي متطلبات بناء أو تصنيع.'
             )}
           </p>
+          <CompanyProfileActions variant="contact" style={{ marginTop: '24px' }} />
         </div>
       </section>
 
@@ -275,6 +278,15 @@ export default function ContactPage() {
                     'يسعدنا سماع تفاصيل مشروعك. تواصل معنا وسنرد عليك في أقرب وقت ممكن.'
                   )}
                 </p>
+                <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <a
+                    href={COMPANY_PROFILE_HREF}
+                    download={COMPANY_PROFILE_FILENAME}
+                    style={{ color: 'var(--navy)', fontWeight: 700, textDecoration: 'none', fontSize: '14px' }}
+                  >
+                    {t('Download Company Profile (PDF)', 'تحميل ملف الشركة (PDF)')}
+                  </a>
+                </div>
               </div>
 
               <div className="info-cards">

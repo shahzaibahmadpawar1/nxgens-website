@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { InteractiveGrid } from '@/components/InteractiveGrid';
 import { Counter } from '@/components/Counter';
+import { CompanyProfileActions } from '@/components/CompanyProfileActions';
 
 interface TimelineItem {
   yearEn: string;
@@ -286,10 +287,11 @@ export default function AboutPage() {
               'نحن شركة بناء وتصنيع معتمدة من أرامكو السعودية نقدم حلولاً متكاملة عبر ستة أقسام خدمات متكاملة. نهجنا المتكامل وخبرتنا المعتمدة والتزامنا بالسلامة يميزنا في سوق البناء التنافسي بالمملكة العربية السعودية.'
             )}
           </p>
-          <div style={{ marginTop: '24px' }}>
-            <Link className="btn-primary" href="/services" style={{ display: 'inline-block', textDecoration: 'none' }}>
+          <div style={{ marginTop: '24px', display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
+            <Link className="btn-primary" href="/services" style={{ display: 'inline-flex', textDecoration: 'none' }}>
               {t('Explore Our Work', 'استكشف أعمالنا')}
             </Link>
+            <CompanyProfileActions variant="hero" />
           </div>
         </div>
       </section>
@@ -703,6 +705,10 @@ export default function AboutPage() {
               {t('View Our Services', 'عرض خدماتنا')}
             </Link>
           </div>
+          <CompanyProfileActions
+            variant="cta"
+            style={{ justifyContent: 'center', marginTop: '16px' }}
+          />
           <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '12px', marginTop: '16px' }}>
             📧 H.zaman@Nxgens.com | 💬 +966534169741
           </div>
